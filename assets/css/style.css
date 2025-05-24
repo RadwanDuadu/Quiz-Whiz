@@ -1,0 +1,12 @@
+.topic-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+.question-box {
+  min-height: 100px;
+  text-align: center;
+}
+.answer-option {
+  text-align: left;
+}

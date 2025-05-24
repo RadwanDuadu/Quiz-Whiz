@@ -13,47 +13,76 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
 
-    <body class="bg-light">
-        <div class="container py-5">
-            <!-- Game Card -->
-            <div class="card shadow-lg">
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-9 col-lg-9">
+                <!-- Game Card -->
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <!-- Topic Icons -->
+                        <div class="row text-center mb-4">
+                            <div class="col">
+                                <img src="assets/images/geo-icon.jpg" alt="Geography" class="topic-icon img-fluid">
+                                <p>Geography</p>
+                            </div>
+                            <div class="col">
+                                <img src="assets/images/history-icon.jpg" alt="History" class="topic-icon img-fluid">
+                                <p>History</p>
+                            </div>
+                            <div class="col">
+                                <img src="assets/images/physics-icon.jpg" alt="Physics" class="topic-icon img-fluid">
+                                <p>Physics</p>
+                            </div>
+                            <div class="col">
+                                <img src="assets/images/bio-icon.png" alt="Biology" class="topic-icon img-fluid">
+                                <p>Biology</p>
+                            </div>
+                            <div class="col">
+                                <img src="assets/images/chem-icon.png" alt="Chemistry" class="topic-icon img-fluid">
+                                <p>Chemistry</p>
+                            </div>
+                        </div>
 
-                <div class="card-body">
-                    <!-- Topic Icons -->
-                    <div class="row text-center mb-4">
-                        <div class="col">
-                            <img src="assets/images/geo-icon.jpg" alt="Geography" class="topic-icon">
-                            <p>Geography</p>
+                        <!-- Question Area -->
+                        <div class="question-box border rounded p-3 mb-4 bg-white">
+                            <h5 id="question-text">Which planet is known as the Red Planet?</h5>
                         </div>
-                        <div class="col">
-                            <img src="assets/images/history-icon.jpg" alt="History" class="topic-icon">
-                            <p>History</p>
-                        </div>
-                        <div class="col">
-                            <img src="assets/images/physics-icon.jpg" alt="Physics" class="topic-icon">
-                            <p>Physics</p>
-                        </div>
-                        <div class="col">
-                            <img src="assets/images/bio-icon.png" alt="Physics" class="topic-icon">
-                            <p>Biology</p>
-                        </div>
-                        <div class="col">
-                            <img src="assets/images/chem-icon.png" alt="Chemistry" class="topic-icon">
-                            <p>Chemistry</p>
-                        </div>
+
+                        <!-- Multiple Choice Options -->
+                        <form id="quiz-form">
+                            <div class="mb-2">
+                                <button type="button" class="btn btn-outline-secondary w-100 answer-option">A.
+                                    Earth</button>
+                            </div>
+                            <div class="mb-2">
+                                <button type="button" class="btn btn-outline-secondary w-100 answer-option">B. Mars</button>
+                            </div>
+                            <div class="mb-2">
+                                <button type="button" class="btn btn-outline-secondary w-100 answer-option">C.
+                                    Jupiter</button>
+                            </div>
+                            <div class="mb-4">
+                                <button type="button" class="btn btn-outline-secondary w-100 answer-option">D.
+                                    Venus</button>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success px-5">Submit</button>
+                            </div>
+                        </form>
                     </div>
-
-                    
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Bootstrap JS Bundle -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Custom JS -->
-        <script src="assets/js/script.js"></script>
-    </body>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+</body>
 
 </html>

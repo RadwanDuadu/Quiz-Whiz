@@ -48,6 +48,7 @@ function runGame(gameType) {
         const selectedQuestions = getRandomQuestionsWithShuffledOptions(questionSet, 10);
         console.log("Selected Questions:");
         console.log(selectedQuestions);
+        displayQuestion(selectedQuestions[0]); // Display the first question
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw new Error(`Unknown game type: "${gameType}". Available types are: ${Object.keys(questionSets).join(", ")}`);
@@ -68,4 +69,27 @@ function getRandomQuestionsWithShuffledOptions(questions, count) {
         ...q,
         options: shuffleArray([...q.options])
     }));
+}
+
+function checkAnswer() {
+    // Get the user's answer from the input buttons
+
+
+    runGame(currentGameType);
+}
+
+// Dsiaplay the question and options in the frontend UI
+function displayQuestion(question) {
+    // Display the question and options in the UI
+    const questionElement = document.getElementById("question-text");
+    questionElement.textContent = question.question;
+
+    const optionButtons = document.querySelectorAll(".answer-option");
+
+    // Ensure there are enough buttons for all options
+    question.options.forEach((option, index) => {
+        if (optionButtons[index]) {
+            optionButtons[index].textContent = option;
+        }
+    });
 }

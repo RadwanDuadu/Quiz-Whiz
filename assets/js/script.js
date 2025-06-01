@@ -87,6 +87,10 @@ function checkAnswer() {
     console.log("checkAnswer() called");
     console.log("Current index:", currentQuestionIndex);
     console.log("Selected questions:", selectedQuestions);
+
+    //increment number of questions
+    incrementQuestionNumber();
+
     const selected = document.querySelector('.answer-option.selected');
     if (!selected) {
         alert("Please select an answer before submitting.");
@@ -100,8 +104,10 @@ function checkAnswer() {
         console.log("User's answer:", userAnswer);
         console.log("Correct answer:", correctAnswer);
         alert("✅ Correct!");
+        incrementScore();
     } else {
         alert(`❌ Incorrect! Correct answer: ${correctAnswer}`);
+        incrementWrongAnswer();
     }
 
     // Lock current answer (disable buttons)
@@ -138,4 +144,31 @@ function displayQuestion(question) {
             optionButtons[index].textContent = option;
         }
     });
+}
+
+/**
+ * Gets the current score from the DOM and increments it by 1
+ */
+function incrementScore() {
+    let oldScore = parseInt(document.getElementById("correct-answers").innerText);
+    document.getElementById("correct-answers").innerText = ++oldScore;
+    console.log(oldScore);
+}
+
+/**
+ * Gets the current tally of incorrect answers from the DOM and increments it by 1
+ */
+function incrementWrongAnswer() {
+    let oldScore = parseInt(document.getElementById("incorrect-answers").innerText);
+    document.getElementById("incorrect-answers").innerText = ++oldScore;
+    console.log(oldScore);
+}
+
+/**
+ * Gets the current tally of total questions from the DOM and increments it by 1
+ */
+function incrementQuestionNumber() {
+    let questionNum = parseInt(document.getElementById("total-questions").innerText);
+    document.getElementById("total-questions").innerText = ++questionNum;
+    console.log(questionNum);
 }

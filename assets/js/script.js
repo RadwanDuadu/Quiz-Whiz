@@ -19,7 +19,25 @@ const questionSets = {
 // Get the button elements and add event listeners to them
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Get all button elements
+    // This will select all buttons in the document
     const buttons = document.querySelectorAll('button');
+
+    // Add event listeners to the topic buttons
+    const topicButtons = document.querySelectorAll('.topic-btn');
+
+    topicButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Remove 'selected' class from all buttons
+            topicButtons.forEach(btn => btn.classList.remove('selected'));
+            // Add 'selected' to the clicked button
+            this.classList.add('selected');
+
+            // Start the quiz for this topic
+            const type = this.getAttribute('data-type');
+            runGame(type);
+        });
+    });
 
     for (let button of buttons) {
         button.addEventListener("click", function () {
@@ -34,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Setup answer button listeners separately
+    // Setup answer button listeners separately for answer selection
     const answerButtons = document.querySelectorAll('.answer-option');
     answerButtons.forEach(button => {
         button.addEventListener('click', function () {

@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add event listeners to the topic buttons
     const topicButtons = document.querySelectorAll('.topic-btn');
+    const submitButton = document.getElementById('submit-btn');
 
     topicButtons.forEach(button => {
         button.addEventListener('click', function () {
@@ -58,6 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener('click', function () {
             answerButtons.forEach(btn => btn.classList.remove('selected'));
             this.classList.add('selected');
+
+            // ✅ Enable the submit button
+            submitButton.disabled = false;
         });
     });
 
@@ -130,6 +134,7 @@ function checkAnswer() {
 
     // Lock current answer (disable buttons)
     document.querySelectorAll('.answer-option').forEach(btn => btn.disabled = true);
+    submitButton.disabled = true;
     document.querySelector('[data-type="submit"]').disabled = true;
 
     // Move to next question after a short delay
@@ -146,6 +151,7 @@ function checkAnswer() {
             showFeedbackModal("Quiz complete! Thank you for playing!", "primary", "Quiz Finished");
         }
     }, 1000);
+    
 }
 
 // Dsiaplay the question and options in the frontend UI
@@ -192,13 +198,13 @@ function incrementQuestionNumber() {
 }
 
 // Show a modal with feedback on the user's answer
-function showFeedbackModal(message, type = "primary" , title) {
+function showFeedbackModal(message, type = "primary", title) {
     const modalElement = new bootstrap.Modal(document.getElementById('feedbackModal'));
     const modalTitle = document.getElementById('feedbackTitle');
     const modalBody = document.getElementById('feedbackBody');
 
     modalTitle.textContent = title;
     modalBody.innerHTML = `<div class="alert alert-${type}" role="alert">${message}</div>`;
-    
+
     modalElement.show();
 }

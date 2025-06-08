@@ -79,7 +79,7 @@ function runGame(gameType) {
         console.log(selectedQuestions);
         displayQuestion(selectedQuestions[0]); // Display the first question
     } else {
-        alert(`Unknown game type: ${gameType}`);
+        showFeedbackModal(`Unknown game type: ${gameType}`, "success", "Game Type Error");
         throw new Error(`Unknown game type: "${gameType}". Available types are: ${Object.keys(questionSets).join(", ")}`);
     }
 }
@@ -111,7 +111,7 @@ function checkAnswer() {
 
     const selected = document.querySelector('.answer-option.selected');
     if (!selected) {
-        alert("Please select an answer before submitting.");
+        showFeedbackModal("Please select an answer before submitting.", "warning", "No Answer Selected");
         return;
     }
 
@@ -121,10 +121,10 @@ function checkAnswer() {
     if (userAnswer === correctAnswer) {
         console.log("User's answer:", userAnswer);
         console.log("Correct answer:", correctAnswer);
-        alert("✅ Correct!");
+        showFeedbackModal("✅ Correct!", "success");
         incrementScore();
     } else {
-        alert(`❌ Incorrect! Correct answer: ${correctAnswer}`);
+        showFeedbackModal(`❌ Incorrect! Correct answer: ${correctAnswer}`, "danger");
         incrementWrongAnswer();
     }
 
@@ -143,7 +143,7 @@ function checkAnswer() {
             });
             document.querySelector('[data-type="submit"]').disabled = false;
         } else {
-            alert("🎉 Quiz complete!");
+            showFeedbackModal("Quiz complete! Thank you for playing!", "primary", "Quiz Finished");
         }
     }, 1000);
 }
@@ -189,4 +189,16 @@ function incrementQuestionNumber() {
     let questionNum = parseInt(document.getElementById("total-questions").innerText);
     document.getElementById("total-questions").innerText = ++questionNum;
     console.log(questionNum);
+}
+
+// Show a modal with feedback on the user's answer
+function showFeedbackModal(message, type = "primary" , title) {
+    const modalElement = new bootstrap.Modal(document.getElementById('feedbackModal'));
+    const modalTitle = document.getElementById('feedbackTitle');
+    const modalBody = document.getElementById('feedbackBody');
+
+    modalTitle.textContent = title;
+    modalBody.innerHTML = `<div class="alert alert-${type}" role="alert">${message}</div>`;
+    
+    modalElement.show();
 }

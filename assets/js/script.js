@@ -40,6 +40,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // add event listener for reset button
+    document.getElementById('play-again-btn').addEventListener('click', () => {
+        const modal = bootstrap.Modal.getInstance(document.getElementById('feedbackModal'));
+        modal.hide(); // Close modal
+        resetGame(); // Restart game
+    });
+
+    // Add event listeners to all buttons
     for (let button of buttons) {
         button.addEventListener("click", function () {
             const type = this.getAttribute("data-type");
@@ -161,7 +169,7 @@ function checkAnswer() {
             showFeedbackModal("Quiz complete! Thank you for playing!", "primary", "Quiz Finished");
         }
     }, 1000);
-    
+
 }
 
 // Dsiaplay the question and options in the frontend UI
@@ -212,9 +220,21 @@ function showFeedbackModal(message, type = "primary", title) {
     const modalElement = new bootstrap.Modal(document.getElementById('feedbackModal'));
     const modalTitle = document.getElementById('feedbackTitle');
     const modalBody = document.getElementById('feedbackBody');
+    const playAgainBtn = document.getElementById('play-again-btn');
 
     modalTitle.textContent = title;
     modalBody.innerHTML = `<div class="alert alert-${type}" role="alert">${message}</div>`;
 
+    if (title === "Quiz Finished") {
+        playAgainBtn.classList.remove("d-none");
+    } else {
+        playAgainBtn.classList.add("d-none");
+    }
+
     modalElement.show();
+}
+
+// Reset the game by reloading the page
+function resetGame() {
+    window.location.reload();// Reload the page to reset the game
 }

@@ -55,6 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (type === "submit") {
                 checkAnswer();
+            }
+            else if (type === "reset") {
+                // Reset the game by reloading the page
+                resetGame();
             } else {
                 runGame(type);
             }
@@ -236,5 +240,5 @@ function showFeedbackModal(message, type = "primary", title) {
 
 // Reset the game by reloading the page
 function resetGame() {
-    window.location.reload();// Reload the page to reset the game
+    window.location.reload(); // Reload the page to reset the game
 }

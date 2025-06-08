@@ -18,7 +18,13 @@
     <h1 class="heading">
         <img class="logo" src="assets/images/logo2.png" alt="logo">Quiz-Whiz
     </h1>
-    <main class="container py-1">
+    <!-- Reset Button -->
+    <div class="text-center">
+        <button class="btn btn-danger" id="reset-btn" data-type="reset">Reset Button</button>
+        <button class="btn btn-primary sharp-corners custom-button" data-bs-toggle="modal" data-bs-target="#rulesModal" >Game Rules</button>
+    </div>
+
+    <main class="container py-2">
         <div class="row justify-content-center">
             <div class="col-12 col-md-9 col-lg-9">
                 <!-- Game Card -->
@@ -89,7 +95,8 @@
 
                             <!-- Submit Button -->
                             <div class="text-center">
-                                <button class="btn btn-success px-5" id="submit-btn" data-type="submit" disabled>Submit</button>
+                                <button class="btn btn-success px-5" id="submit-btn" data-type="submit"
+                                    disabled>Submit</button>
                             </div>
                         </form>
                     </div>
@@ -116,23 +123,56 @@
         </div>
     </main>
 
-    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="feedbackTitle">Feedback</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="feedbackBody">
-                    <!-- Dynamic message goes here -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
-                    <button type="button" class="btn btn-secondary d-none" id="play-again-btn">Play Again</button>
+    <!-- Bootstrap Modals -->
+    <section>
+        <!-- Game Rules Modal -->
+        <div class="modal fade" id="rulesModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="rulesTitle">Game Rules</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div  class="modal-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">Select a topic to start the quiz. Geography is auto selected
+                                currently.</li>
+                            <li class="list-group-item">Answer the questions by clicking on the options.</li>
+                            <li class="list-group-item">You can only submit your answer after selecting an option.</li>
+                            <li class="list-group-item">You can reset the game at any time using the Reset Button.</li>
+                            <li class="list-group-item">The game will end after 10 questions or when you choose to
+                                reset.</li>
+                            <li class="list-group-item">Your score will be displayed at the end of the game.</li>
+                            <li class="list-group-item">You can play again after the game ends by clicking the Play
+                                Again button.</li>
+                            <li class="list-group-item">Feedback will be provided based on your performance.</li>
+                            <li class="list-group-item">Enjoy the quiz and have fun learning!</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <!-- Feedback Modal -->
+        <div class="modal fade" id="feedbackModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="feedbackTitle">Feedback</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="feedbackBody">
+                        <!-- Dynamic message goes here -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                        <button type="button" data-type="reset" class="btn btn-secondary d-none"
+                            id="play-again-btn">Play Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Bootstrap JS Bundle
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
     <!-- Bootstrap JS (requires Popper) -->

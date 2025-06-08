@@ -49,21 +49,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add event listeners to all buttons
     for (let button of buttons) {
-        button.addEventListener("click", function () {
+        button.addEventListener("click", function (event) {
+            event.preventDefault(); // ✅ Prevent default form behavior
+
             const type = this.getAttribute("data-type");
-            if (!type) return; // 🛡️ Skip buttons with no data-type
+            if (!type) return;
 
             if (type === "submit") {
                 checkAnswer();
-            }
-            else if (type === "reset") {
-                // Reset the game by reloading the page
+            } else if (type === "reset") {
                 window.location.reload();
             } else {
                 runGame(type);
             }
         });
     }
+
 
     // Blur the currently focused element when the feedback modal is closed
     const feedbackModal = document.getElementById('feedbackModal');
@@ -102,6 +103,12 @@ function runGame(gameType) {
         selectedQuestions = getRandomQuestionsWithShuffledOptions(questionSet, 10);
         console.log("Selected Questions:");
         console.log(selectedQuestions);
+
+        // Reset UI score counters
+        document.getElementById("correct-answers").innerText = "0";
+        document.getElementById("incorrect-answers").innerText = "0";
+        document.getElementById("total-questions").innerText = "0";
+
         displayQuestion(selectedQuestions[0]); // Display the first question
     } else {
         showFeedbackModal(`Unknown game type: ${gameType}`, "success", "Game Type Error");
@@ -225,23 +232,30 @@ function showFeedbackModal(message, type = "primary", title) {
     const modalTitle = document.getElementById('feedbackTitle');
     const modalBody = document.getElementById('feedbackBody');
     const playAgainBtn = document.getElementById('play-again-btn');
+    const okBtn = document.getElementById('ok-btn');
 
     modalTitle.textContent = title;
     modalBody.innerHTML = `<div class="alert alert-${type}" role="alert">${message}</div>`;
 
     if (title === "Quiz Finished") {
         playAgainBtn.classList.remove("d-none");
+        okBtn.classList.add("d-none");
     } else {
         playAgainBtn.classList.add("d-none");
+        if (okBtn.classList.contains("d-none")) {
+            // If the OK button is hidden, show it
+            okBtn.classList.remove("d-none");
+        }
     }
-
     modalElement.show();
 }
 
-// Reset the game by reloading the page
+// Reset the current game state
+// This function resets the game to its initial state
+// It clears the current question index, re-selects questions, and updates the UI
 function resetGame() {
     const selectedTopicBtn = document.querySelector('.topic-btn.selected');
-    const currentType = selectedTopicBtn?.getAttribute('data-type') || "geography";
+    const currentType = selectedTopicBtn ? selectedTopicBtn.getAttribute('data-type') : "geography";
 
     currentQuestionIndex = 0;
     selectedQuestions = getRandomQuestionsWithShuffledOptions(questionSets[currentType], 10);

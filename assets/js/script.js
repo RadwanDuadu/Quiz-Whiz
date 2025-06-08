@@ -53,6 +53,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Blur the currently focused element when the feedback modal is closed
+    const feedbackModal = document.getElementById('feedbackModal');
+    feedbackModal.addEventListener('hidden.bs.modal', function () {
+        // Blur the currently focused element to prevent accessibility conflict
+        if (document.activeElement) {
+            document.activeElement.blur();
+        }
+    });
+
     // Setup answer button listeners separately for answer selection
     const answerButtons = document.querySelectorAll('.answer-option');
     answerButtons.forEach(button => {
@@ -134,12 +143,13 @@ function checkAnswer() {
 
     // Lock current answer (disable buttons)
     document.querySelectorAll('.answer-option').forEach(btn => btn.disabled = true);
-    submitButton.disabled = true;
     document.querySelector('[data-type="submit"]').disabled = true;
+    const submitButton = document.getElementById('submit-btn');
 
     // Move to next question after a short delay
     setTimeout(() => {
         currentQuestionIndex++;
+        submitButton.disabled = true;
         if (currentQuestionIndex < selectedQuestions.length) {
             displayQuestion(selectedQuestions[currentQuestionIndex]);
             document.querySelectorAll('.answer-option').forEach(btn => {

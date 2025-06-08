@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             else if (type === "reset") {
                 // Reset the game by reloading the page
-                resetGame();
+                window.location.reload();
             } else {
                 runGame(type);
             }
@@ -240,5 +240,21 @@ function showFeedbackModal(message, type = "primary", title) {
 
 // Reset the game by reloading the page
 function resetGame() {
-    window.location.reload(); // Reload the page to reset the game
+    const selectedTopicBtn = document.querySelector('.topic-btn.selected');
+    const currentType = selectedTopicBtn?.getAttribute('data-type') || "geography";
+
+    currentQuestionIndex = 0;
+    selectedQuestions = getRandomQuestionsWithShuffledOptions(questionSets[currentType], 10);
+    displayQuestion(selectedQuestions[currentQuestionIndex]);
+
+    // Re-enable all answer buttons
+    const answerButtons = document.querySelectorAll('.answer-option');
+    answerButtons.forEach(btn => {
+        btn.classList.remove('selected');
+        btn.disabled = false;
+    });
+
+    // Re-enable submit
+    const submitButton = document.getElementById('submit-btn');
+    submitButton.disabled = true;
 }

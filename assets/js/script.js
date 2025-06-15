@@ -7,6 +7,8 @@ import {
 let questionSet = null;
 let selectedQuestions = [];
 let currentQuestionIndex = 0;
+let currentGameType = null;
+
 
 // Object containing available question arrays
 const questionSets = {
@@ -87,6 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // Start the game with the default topic
+    // This will be the first topic button that is selected
+    currentGameType = "geography";
     runGame("geography");
 });
 
@@ -95,26 +100,30 @@ document.addEventListener("DOMContentLoaded", function () {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
+    const isNewGameType = currentGameType !== gameType;
 
-    // Set the global questionSet based on the selected gameType
-    if (questionSets[gameType]) {
-        questionSet = questionSets[gameType];
-        //console.log(questionSet);
-        selectedQuestions = getRandomQuestionsWithShuffledOptions(questionSet, 10);
-        console.log("Selected Questions:");
-        console.log(selectedQuestions);
+    if (!questionSets[gameType]) {
+        showFeedbackModal(`Unknown game type: ${gameType}`, "danger", "Game Type Error");
+        throw new Error(`Unknown game type: "${gameType}". Available types are: ${Object.keys(questionSets).join(", ")}`);
+    }
 
-        // Reset UI score counters
+    // ✅ Save the current game type
+    currentGameType = gameType;
+
+    questionSet = questionSets[gameType];
+    selectedQuestions = getRandomQuestionsWithShuffledOptions(questionSet, 10);
+    currentQuestionIndex = 0;
+
+    // ✅ Only reset scores if it's a different topic
+    if (isNewGameType) {
         document.getElementById("correct-answers").innerText = "0";
         document.getElementById("incorrect-answers").innerText = "0";
         document.getElementById("total-questions").innerText = "0";
-
-        displayQuestion(selectedQuestions[0]); // Display the first question
-    } else {
-        showFeedbackModal(`Unknown game type: ${gameType}`, "success", "Game Type Error");
-        throw new Error(`Unknown game type: "${gameType}". Available types are: ${Object.keys(questionSets).join(", ")}`);
     }
+
+    displayQuestion(selectedQuestions[0]);
 }
+
 
 // Randomly select 10 questions from the specified array
 // Shuffle helper function
@@ -254,21 +263,29 @@ function showFeedbackModal(message, type = "primary", title) {
 // This function resets the game to its initial state
 // It clears the current question index, re-selects questions, and updates the UI
 function resetGame() {
-    const selectedTopicBtn = document.querySelector('.topic-btn.selected');
-    const currentType = selectedTopicBtn ? selectedTopicBtn.getAttribute('data-type') : "geography";
+    if (!currentGameType || !questionSets[currentGameType]) {
+        console.error("No valid current game type.");
+        return;
+    }
 
+    // ✅ Reset score and question counters
+    document.getElementById("correct-answers").innerText = "0";
+    document.getElementById("incorrect-answers").innerText = "0";
+    document.getElementById("total-questions").innerText = "0";
+
+    // ✅ Reset question list and index
     currentQuestionIndex = 0;
-    selectedQuestions = getRandomQuestionsWithShuffledOptions(questionSets[currentType], 10);
+    selectedQuestions = getRandomQuestionsWithShuffledOptions(questionSets[currentGameType], 10);
     displayQuestion(selectedQuestions[currentQuestionIndex]);
 
-    // Re-enable all answer buttons
+    // ✅ Reset UI elements
     const answerButtons = document.querySelectorAll('.answer-option');
     answerButtons.forEach(btn => {
         btn.classList.remove('selected');
         btn.disabled = false;
     });
 
-    // Re-enable submit
-    const submitButton = document.getElementById('submit-btn');
-    submitButton.disabled = true;
+    document.getElementById('submit-btn').disabled = true;
 }
+
+

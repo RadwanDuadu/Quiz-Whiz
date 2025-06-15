@@ -89,33 +89,25 @@ source: [Quiz-Whiz amiresponsive](https://ui.dev/amiresponsive?url=https://radwa
 
 ### Colour Scheme
 
-⚠️INSTRUCTIONS ⚠️
+The Quiz-Whiz project uses a light and playful color palette to promote an engaging and educational atmosphere. The combination of Bootstrap's default light theme with carefully selected highlight colors ensures clarity, accessibility, and a modern design feel.
 
-Explain your colors and color scheme. Consider adding a link and screenshot for your color scheme using [coolors](https://coolors.co/generate).
+Bright and contrasting hues are used to indicate interactivity (like selected answers and topics), while background and text colors maintain a clean and user-friendly interface. The use of color reinforces correct user flow and feedback, especially in question prompts, score tracking, and modals.
 
-When you add a color to the palette, the URL is dynamically updated, making it easier for you to return back to your color palette later if needed. See example below:
-
-⚠️ --- END --- ⚠️
-
-I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to generate my color palette.
-
-- `#000000` primary text.
-- `#3772FF` primary highlights.
-- `#DF2935` secondary text.
-- `#FDCA40` secondary highlights.
-
-![screenshot](documentation/coolors.png)
+- `#f8f9fa` (Solitude): Main page background (bg-light) for a bright, clean look.
+- `#ffffff` (White): Question and answer containers (bg-white) for readability and contrast.
+- `#007bff` (Bootstrap Blue): Highlight color for selected answers and buttons (interactive elements).
+- `#0056b3` (Deep Blue): Border color for selected answers to enhance visual clarity.
+- `#dc3545` (Bootstrap Red): Used for the Reset Button, signaling a strong action.
+- `#198754` (Bootstrap Green): Used for the Submit Button, indicating confirmation/approval.
+- `#000000` (Black): Employed for selected topic borders and key text elements for strong contrast.
+- `#212529` (Charcoal): Modal headers and other text-heavy areas for improved readability.
+- `#0d6efd` (Primary Blue): Bootstrap modal controls and action buttons, ensuring consistent UI behavior.
 
 ### Typography
 
-⚠️ INSTRUCTIONS ⚠️
+The typography design of Quiz-Whiz aims for simplicity and accessibility, relying on well-supported system fonts to maintain performance while ensuring text is readable, clear, and easy to navigate across all devices and screen sizes.
 
-Explain any fonts and icon libraries used, like **Google Fonts**, **Font Awesome**, etc. Consider adding a link to each font used, the Font Awesome site (if used), or similar icon library.
-
-⚠️ --- END --- ⚠️
-
-- [Montserrat](https://fonts.google.com/specimen/Montserrat) was used for the primary headers and titles.
-- [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
+- [Bootstrap Default Fonts](https://getbootstrap.com/docs/5.3/content/typography/) are used throughout the project to ensure broad browser compatibility and quick loading. This includes `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`.
 - [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
 
 ## Wireframes

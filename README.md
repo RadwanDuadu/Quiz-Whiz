@@ -6,35 +6,17 @@ Developer: Radwan Duadu ([RadwanDuadu](https://www.github.com/RadwanDuadu))
 [![GitHub last commit](https://img.shields.io/github/last-commit/RadwanDuadu/Quiz-Whiz)](https://www.github.com/RadwanDuadu/Quiz-Whiz/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/RadwanDuadu/Quiz-Whiz)](https://www.github.com/RadwanDuadu/Quiz-Whiz)
 
-⚠️ INSTRUCTIONS ⚠️
 
-In this section, include a few paragraphs providing an overview of your project. Essentially, this part is your "sales pitch". Describe what the project hopes to accomplish, who it is intended to target, and how it will be useful to the target audience.
+The Pop Quiz Game Website is an interactive, educational web application designed to engage users in a fun and intuitive quiz experience across a range of core academic subjects, including Geography, History, Biology, Chemistry, and Physics. Built using HTML, CSS, and JavaScript, the site incorporates modern front-end practices with a strong focus on accessibility, responsiveness, and user experience design.
 
-⚠️ --- END --- ⚠️
+The goal of this project is to create an enjoyable and informative platform that caters to students, lifelong learners, and trivia enthusiasts who want to test or improve their knowledge through quick and interactive gameplay. With various game modes available — such as subject-specific quizzes, free-for-all mixed subject rounds, and customizable game rules — users can tailor their learning experience to suit their preferences or study goals.
 
-🛑 NOTES 🛑
-
-Do not add a **Table of Contents** to your Markdown files. GitHub has these built-in automatically using the headers/hashtags.
-
-Don't add screenshots for the README/TESTING into your `assets` or `static` folders. Create a new folder at the root-level called `documentation`. Consider creating sub-directories within `documentation` to handle things like `wireframes`, `features`, `validation`, `responsiveness`, etc.
+In addition to its educational utility, the platform is designed with modern web development principles: clean, validated code; semantic HTML5 structure; mobile-first responsive layout; and visually engaging, feedback-rich interaction using modals and animated transitions.
 
 **Site Mockups**
-*([amiresponsive](https://ui.dev/amiresponsive?url=https://radwanduadu.github.io/Quiz-Whiz), [techsini](https://techsini.com/multi-mockup), etc.)*
-Having issues generating site mockups? This is likely due to security policies with your deployed site.
-If you open up your DevTools, there may be an error referencing `X-Frame-Options`.
-
-For Chrome users, head over to http://bit.ly/3iRPn4u and install the extension within your browser. Once installed, navigate back to the mockup site of your choice. You should find your site rendering in the various devices now.
-
-Alternatively, open your project in Gitpod and run the server. Once the site is running, click the `Ports` tab from your Gitpod Terminal. Click the padlock on the appropriate port for your project (`Flask: 5000`, `Django: 8000`). This will make your local page public temporarily. Now, copy the URL of your live-preview page into the responsive tool above. You should find your site rendering in the various devices.
-
-🛑 --- END ---- 🛑
-
 ![screenshot](documentation/mockup.png)
 
 source: [Quiz-Whiz amiresponsive](https://ui.dev/amiresponsive?url=https://radwanduadu.github.io/Quiz-Whiz)
-
-> [!IMPORTANT]
-> The examples in these templates are strongly influenced by the Code Institute walkthrough project called "Love Maths".
 
 ## UX
 
@@ -45,16 +27,19 @@ source: [Quiz-Whiz amiresponsive](https://ui.dev/amiresponsive?url=https://radwa
 #### 1. Strategy
 
 **Purpose**
+
 - Provide users with a simple and accessible way to perform basic mathematical operations.
 - Deliver instant feedback to improve usability and encourage learning.
 - Support accessibility and user-friendly interactions.
 
 **Primary User Needs**
+
 - Perform calculations quickly and accurately.
 - Understand errors and correct them easily.
 - Track performance to motivate self-improvement.
 
 **Business Goals**
+
 - Encourage users to engage with the app for educational and recreational purposes.
 - Showcase a well-designed, accessible tool that supports learning.
 
@@ -63,6 +48,7 @@ source: [Quiz-Whiz amiresponsive](https://ui.dev/amiresponsive?url=https://radwa
 **[Features](#features)** (see below)
 
 **Content Requirements**
+
 - Clear labels and instructions for input and operator buttons.
 - Error messages for invalid inputs.
 - Instant calculation results.
@@ -71,6 +57,7 @@ source: [Quiz-Whiz amiresponsive](https://ui.dev/amiresponsive?url=https://radwa
 #### 3. Structure
 
 **Information Architecture**
+
 - **Navigation Menu**:
   - Simple navbar with accessible links.
 - **Hierarchy**:
@@ -78,6 +65,7 @@ source: [Quiz-Whiz amiresponsive](https://ui.dev/amiresponsive?url=https://radwa
   - Visible results area and error messages.
 
 **User Flow**
+
 1. User lands on the home page → reads brief instructions.
 2. Inputs two numbers → selects an operator.
 3. Sees instant results or an error message if input is invalid.
@@ -91,6 +79,7 @@ source: [Quiz-Whiz amiresponsive](https://ui.dev/amiresponsive?url=https://radwa
 #### 5. Surface
 
 **Visual Design Elements**
+
 - **[Colours](#colour-scheme)** (see below)
 - **[Typography](#typography)** (see below)
 
@@ -136,10 +125,10 @@ If you've created wireframes or mock-ups, use this section to display screenshot
 To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
 I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
-| Page | Mobile | Tablet | Desktop |
-| --- | --- | --- | --- |
+| Page | Mobile                                                  | Tablet                                                  | Desktop                                                  |
+| ---- | ------------------------------------------------------- | ------------------------------------------------------- | -------------------------------------------------------- |
 | Home | ![screenshot](documentation/wireframes/mobile-home.png) | ![screenshot](documentation/wireframes/tablet-home.png) | ![screenshot](documentation/wireframes/desktop-home.png) |
-| 404 | ![screenshot](documentation/wireframes/mobile-404.png) | ![screenshot](documentation/wireframes/tablet-404.png) | ![screenshot](documentation/wireframes/desktop-404.png) |
+| 404  | ![screenshot](documentation/wireframes/mobile-404.png)  | ![screenshot](documentation/wireframes/tablet-404.png)  | ![screenshot](documentation/wireframes/desktop-404.png)  |
 
 ## User Stories
 
@@ -149,17 +138,17 @@ In this section, list all of your possible user stories for the project. Samples
 
 ⚠️ --- END --- ⚠️
 
-| Target | Expectation | Outcome |
-| --- | --- | --- |
-| As a user | I would like to input two numbers and select an operator (`+`, `-`, `*`, `/`) | so that I can calculate a result. |
-| As a user | I would like the application to show me an error message if I enter empty input (`NaN`) | so that I understand what went wrong. |
-| As a user | I would like the calculation to happen instantly after I select an operator | so that I get my result quickly without waiting. |
-| As a user | I would like the application to have clear and large buttons for each operator | so that I can easily select the correct one on any device. |
-| As a user | I would like the application to have high-contrast colors and accessible fonts | so that I can easily read and interact with it. |
-| As a user | I would like clear labels and instructions | so that I understand how to use the app without confusion. |
-| As a user | I would like the app to show me the correct result if my equation was incorrect | so that I understand how the answer was calculated. |
-| As a user |  I would like to see how many equations I get correct or incorrect | so I can push myself to improve my math skills. |
-| As a user | I would like to see a 404 error page if I get lost | so that it's obvious that I've stumbled upon a page that doesn't exist. |
+| Target    | Expectation                                                                             | Outcome                                                                 |
+| --------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| As a user | I would like to input two numbers and select an operator (`+`, `-`, `*`, `/`)           | so that I can calculate a result.                                       |
+| As a user | I would like the application to show me an error message if I enter empty input (`NaN`) | so that I understand what went wrong.                                   |
+| As a user | I would like the calculation to happen instantly after I select an operator             | so that I get my result quickly without waiting.                        |
+| As a user | I would like the application to have clear and large buttons for each operator          | so that I can easily select the correct one on any device.              |
+| As a user | I would like the application to have high-contrast colors and accessible fonts          | so that I can easily read and interact with it.                         |
+| As a user | I would like clear labels and instructions                                              | so that I understand how to use the app without confusion.              |
+| As a user | I would like the app to show me the correct result if my equation was incorrect         | so that I understand how the answer was calculated.                     |
+| As a user | I would like to see how many equations I get correct or incorrect                       | so I can push myself to improve my math skills.                         |
+| As a user | I would like to see a 404 error page if I get lost                                      | so that it's obvious that I've stumbled upon a page that doesn't exist. |
 
 ## Features
 
@@ -173,14 +162,14 @@ In this section, you should go over the different parts of your project, and des
 
 ### Existing Features
 
-| Feature | Notes | Screenshot |
-| --- | --- | --- |
-| Operators | The mathematical operators (`+`, `-`, `*`, `/`) are large and colorful to allow users to easily select their preferred method of testing their calculation skills. Each operator is color-coded, and has the text name as well for easy identification. | ![screenshot](documentation/features/operators.png) |
-| Equation | This section visibly displays the current equation to be calculated, dynamically updated to use the specific operator that the user has selected above. The empty `<input>` field allows users to enter valid numerical values to test their math skills. | ![screenshot](documentation/features/equation.png) |
-| Submit Answer | This button allows user to submit their calculation to see if they've successfully answered the current equation. Users can also use the `[ENTER]` key on their keyboard to submit their answers, too. | ![screenshot](documentation/features/submit-answer.png) |
-| Scores | This section tallies the total number of *correct* and *incorrect* answers that the user has calculated. Green to represent *correct*, and red to represent *incorrect*. | ![screenshot](documentation/features/scores.png) |
-| Alerts | Depending on whether or not the user gets the calculation correct or incorrect, alerts are used to provide simple feedback to the user. This showcases if they got it correct, or if they've gotten it incorrect, therefore also showing the correct answer. | ![screenshot](documentation/features/alerts.png) |
-| 404 | The 404 error page will indicate when a user has somehow navigated to a page that doesn't exist. This replaces the default GitHub Pages 404 page, and ties-in with the look and feel of the *Love Maths* site by using the standard navbar and footer. | ![screenshot](documentation/features/404.png) |
+| Feature       | Notes                                                                                                                                                                                                                                                        | Screenshot                                              |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| Operators     | The mathematical operators (`+`, `-`, `*`, `/`) are large and colorful to allow users to easily select their preferred method of testing their calculation skills. Each operator is color-coded, and has the text name as well for easy identification.      | ![screenshot](documentation/features/operators.png)     |
+| Equation      | This section visibly displays the current equation to be calculated, dynamically updated to use the specific operator that the user has selected above. The empty `<input>` field allows users to enter valid numerical values to test their math skills.    | ![screenshot](documentation/features/equation.png)      |
+| Submit Answer | This button allows user to submit their calculation to see if they've successfully answered the current equation. Users can also use the `[ENTER]` key on their keyboard to submit their answers, too.                                                       | ![screenshot](documentation/features/submit-answer.png) |
+| Scores        | This section tallies the total number of _correct_ and _incorrect_ answers that the user has calculated. Green to represent _correct_, and red to represent _incorrect_.                                                                                     | ![screenshot](documentation/features/scores.png)        |
+| Alerts        | Depending on whether or not the user gets the calculation correct or incorrect, alerts are used to provide simple feedback to the user. This showcases if they got it correct, or if they've gotten it incorrect, therefore also showing the correct answer. | ![screenshot](documentation/features/alerts.png)        |
+| 404           | The 404 error page will indicate when a user has somehow navigated to a page that doesn't exist. This replaces the default GitHub Pages 404 page, and ties-in with the look and feel of the _Love Maths_ site by using the standard navbar and footer.       | ![screenshot](documentation/features/404.png)           |
 
 ### Future Features
 
@@ -211,20 +200,20 @@ A few examples are listed below to align with possible ways to improve on the sa
 
 ## Tools & Technologies
 
-| Tool / Tech | Use |
-| --- | --- |
-| [![badge](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000)](https://markdown.2bn.dev) | Generate README and TESTING templates. |
-| [![badge](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) | Version control. (`git add`, `git commit`, `git push`) |
-| [![badge](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) | Secure online code storage. |
-| [![badge](https://img.shields.io/badge/VSCode-grey?logo=htmx&logoColor=007ACC)](https://code.visualstudio.com) | Local IDE for development. |
-| [![badge](https://img.shields.io/badge/HTML-grey?logo=html5&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML) | Main site content and layout. |
-| [![badge](https://img.shields.io/badge/CSS-grey?logo=css3&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS) | Design and layout. |
-| [![badge](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)](https://www.javascript.com) | User interaction on the site. |
-| [![badge](https://img.shields.io/badge/GitHub_Pages-grey?logo=githubpages&logoColor=222222)](https://pages.github.com) | Hosting the deployed front-end site. |
-| [![badge](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) | Front-end CSS framework for modern responsiveness and pre-built components. |
-| [![badge](https://img.shields.io/badge/Balsamiq-grey?logo=barmenia&logoColor=CE0908)](https://balsamiq.com/wireframes) | Creating wireframes. |
-| [![badge](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) | Icons. |
-| [![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)](https://chat.openai.com) | Help debug, troubleshoot, and explain things. |
+| Tool / Tech                                                                                                             | Use                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| [![badge](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000)](https://markdown.2bn.dev) | Generate README and TESTING templates.                                      |
+| [![badge](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com)                        | Version control. (`git add`, `git commit`, `git push`)                      |
+| [![badge](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com)                   | Secure online code storage.                                                 |
+| [![badge](https://img.shields.io/badge/VSCode-grey?logo=htmx&logoColor=007ACC)](https://code.visualstudio.com)          | Local IDE for development.                                                  |
+| [![badge](https://img.shields.io/badge/HTML-grey?logo=html5&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML)      | Main site content and layout.                                               |
+| [![badge](https://img.shields.io/badge/CSS-grey?logo=css3&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS)         | Design and layout.                                                          |
+| [![badge](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)](https://www.javascript.com)   | User interaction on the site.                                               |
+| [![badge](https://img.shields.io/badge/GitHub_Pages-grey?logo=githubpages&logoColor=222222)](https://pages.github.com)  | Hosting the deployed front-end site.                                        |
+| [![badge](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com)       | Front-end CSS framework for modern responsiveness and pre-built components. |
+| [![badge](https://img.shields.io/badge/Balsamiq-grey?logo=barmenia&logoColor=CE0908)](https://balsamiq.com/wireframes)  | Creating wireframes.                                                        |
+| [![badge](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com)   | Icons.                                                                      |
+| [![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)](https://chat.openai.com)             | Help debug, troubleshoot, and explain things.                               |
 
 ⚠️ NOTE ⚠️
 
@@ -254,18 +243,18 @@ Consider adding screenshots of your Projects Board(s), Issues (open and closed),
 
 [GitHub Issues](https://www.github.com/RadwanDuadu/Quiz-Whiz/issues) served as an another Agile tool. There, I managed my User Stories and Milestone tasks, and tracked any issues/bugs.
 
-| Link | Screenshot |
-| --- | --- |
-| [![GitHub issues](https://img.shields.io/github/issues/RadwanDuadu/Quiz-Whiz)](https://www.github.com/RadwanDuadu/Quiz-Whiz/issues) | ![screenshot](documentation/gh-issues-open.png) |
+| Link                                                                                                                                                                       | Screenshot                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| [![GitHub issues](https://img.shields.io/github/issues/RadwanDuadu/Quiz-Whiz)](https://www.github.com/RadwanDuadu/Quiz-Whiz/issues)                                        | ![screenshot](documentation/gh-issues-open.png)   |
 | [![GitHub closed issues](https://img.shields.io/github/issues-closed/RadwanDuadu/Quiz-Whiz)](https://www.github.com/RadwanDuadu/Quiz-Whiz/issues?q=is%3Aissue+is%3Aclosed) | ![screenshot](documentation/gh-issues-closed.png) |
 
 ### MoSCoW Prioritization
 
 I've decomposed my Epics into User Stories for prioritizing and implementing them. Using this approach, I was able to apply "MoSCoW" prioritization and labels to my User Stories within the Issues tab.
 
-- **Must Have**: guaranteed to be delivered - required to Pass the project (*max ~60% of stories*)
-- **Should Have**: adds significant value, but not vital (*~20% of stories*)
-- **Could Have**: has small impact if left out (*the rest ~20% of stories*)
+- **Must Have**: guaranteed to be delivered - required to Pass the project (_max ~60% of stories_)
+- **Should Have**: adds significant value, but not vital (_~20% of stories_)
+- **Could Have**: has small impact if left out (_the rest ~20% of stories_)
 - **Won't Have**: not a priority for this iteration - future features
 
 ## Testing
@@ -301,7 +290,7 @@ You can clone the repository by following these steps:
 4. Open "Git Bash" or "Terminal".
 5. Change the current working directory to the location where you want the cloned directory.
 6. In your IDE Terminal, type the following command to clone the repository:
-	- `git clone https://www.github.com/RadwanDuadu/Quiz-Whiz.git`
+   - `git clone https://www.github.com/RadwanDuadu/Quiz-Whiz.git`
 7. Press "Enter" to create your local clone.
 
 Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
@@ -344,15 +333,15 @@ Use this space to provide attribution links for any borrowed code snippets, elem
 
 ⚠️ --- END ---⚠️
 
-| Source | Notes |
-| --- | --- |
-| [Markdown Builder](https://markdown.2bn.dev) | Help generating Markdown files |
-| [Chris Beams](https://chris.beams.io/posts/git-commit) | "How to Write a Git Commit Message" |
-| [Love Maths](https://codeinstitute.net) | Code Institute walkthrough project inspiration |
-| [WebDevSimplified](https://www.youtube.com/watch?v=riDzcEQbX6k) | Inspiration for a quiz app |
-| [WebDevSimplified](https://www.youtube.com/watch?v=1yS-JV4fWqY) | Inspiration for Rock Paper Scissors |
-| [JavaScript30](https://javascript30.com) | Additional JS help |
-| [ChatGPT](https://chatgpt.com) | Help with code logic and explanations |
+| Source                                                          | Notes                                          |
+| --------------------------------------------------------------- | ---------------------------------------------- |
+| [Markdown Builder](https://markdown.2bn.dev)                    | Help generating Markdown files                 |
+| [Chris Beams](https://chris.beams.io/posts/git-commit)          | "How to Write a Git Commit Message"            |
+| [Love Maths](https://codeinstitute.net)                         | Code Institute walkthrough project inspiration |
+| [WebDevSimplified](https://www.youtube.com/watch?v=riDzcEQbX6k) | Inspiration for a quiz app                     |
+| [WebDevSimplified](https://www.youtube.com/watch?v=1yS-JV4fWqY) | Inspiration for Rock Paper Scissors            |
+| [JavaScript30](https://javascript30.com)                        | Additional JS help                             |
+| [ChatGPT](https://chatgpt.com)                                  | Help with code logic and explanations          |
 
 ### Media
 
@@ -363,36 +352,36 @@ Use this space to provide attribution links to any media files borrowed from els
 Looking for some media files? Here are some popular sites to use. The list of examples below is by no means exhaustive. Within the Code Institute Slack community, you can find more "free media" links by sending yourself (or Slackbot) the following command: `!freemedia`.
 
 - Images
-    - [Pexels](https://www.pexels.com)
-    - [Unsplash](https://unsplash.com)
-    - [Pixabay](https://pixabay.com)
-    - [Lorem Picsum](https://picsum.photos) (placeholder images)
-    - [Wallhere](https://wallhere.com) (wallpaper / backgrounds)
-    - [This Person Does Not Exist](https://thispersondoesnotexist.com) (reload to get a new person)
+  - [Pexels](https://www.pexels.com)
+  - [Unsplash](https://unsplash.com)
+  - [Pixabay](https://pixabay.com)
+  - [Lorem Picsum](https://picsum.photos) (placeholder images)
+  - [Wallhere](https://wallhere.com) (wallpaper / backgrounds)
+  - [This Person Does Not Exist](https://thispersondoesnotexist.com) (reload to get a new person)
 - Audio
-    - [Audio Micro](https://www.audiomicro.com/free-sound-effects)
+  - [Audio Micro](https://www.audiomicro.com/free-sound-effects)
 - Video
-    - [Videvo](https://www.videvo.net)
+  - [Videvo](https://www.videvo.net)
 - Image Compression
-    - [TinyPNG](https://tinypng.com) (for images <5MB)
-    - [CompressPNG](https://compresspng.com) (for images >5MB)
+  - [TinyPNG](https://tinypng.com) (for images <5MB)
+  - [CompressPNG](https://compresspng.com) (for images >5MB)
 
 A few examples have been provided below to give you some ideas on how to do your own Media credits.
 
 ⚠️ --- END ---⚠️
 
-| Source | Notes |
-| --- | --- |
-| [favicon.io](https://favicon.io) | Generating the favicon |
-| [Font Awesome](https://fontawesome.com) | Icons used throughout the site |
-| [Pexels](https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg) | Hero image |
-| [Wallhere](https://c.wallhere.com/images/9c/c8/da4b4009f070c8e1dfee43d25f99-2318808.jpg!d) | Background wallpaper |
-| [Pixabay](https://cdn.pixabay.com/photo/2017/09/04/16/58/passport-2714675_1280.jpg) | Background wallpaper |
-| [Mixkit](https://mixkit.co/free-sound-effects/game) | Royalty-free sound effects for the game |
-| [DALL-E 3](https://openai.com/index/dall-e-3) | AI generated artwork |
-| [TinyPNG](https://tinypng.com) | Compressing images < 5MB |
-| [CompressPNG](https://compresspng.com) | Compressing images > 5MB |
-| [CloudConvert](https://cloudconvert.com/webp-converter) | Converting images to `.webp` |
+| Source                                                                                     | Notes                                   |
+| ------------------------------------------------------------------------------------------ | --------------------------------------- |
+| [favicon.io](https://favicon.io)                                                           | Generating the favicon                  |
+| [Font Awesome](https://fontawesome.com)                                                    | Icons used throughout the site          |
+| [Pexels](https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg)                 | Hero image                              |
+| [Wallhere](https://c.wallhere.com/images/9c/c8/da4b4009f070c8e1dfee43d25f99-2318808.jpg!d) | Background wallpaper                    |
+| [Pixabay](https://cdn.pixabay.com/photo/2017/09/04/16/58/passport-2714675_1280.jpg)        | Background wallpaper                    |
+| [Mixkit](https://mixkit.co/free-sound-effects/game)                                        | Royalty-free sound effects for the game |
+| [DALL-E 3](https://openai.com/index/dall-e-3)                                              | AI generated artwork                    |
+| [TinyPNG](https://tinypng.com)                                                             | Compressing images < 5MB                |
+| [CompressPNG](https://compresspng.com)                                                     | Compressing images > 5MB                |
+| [CloudConvert](https://cloudconvert.com/webp-converter)                                    | Converting images to `.webp`            |
 
 ### Acknowledgements
 
@@ -407,5 +396,3 @@ Use this space to provide attribution and acknowledgement to any supports that h
 - I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and impostor syndrome.
 - I would like to thank my partner, for believing in me, and allowing me to make this transition into software development.
 - I would like to thank my employer, for supporting me in my career development change towards becoming a software developer.
-
-

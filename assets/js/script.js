@@ -14,7 +14,9 @@ let currentGameType = null;
 const questionSets = {
     geography: geographyQuestions,
     history: historyQuestions,
-    // add more sets as needed
+    physics: physicsQuestions,
+    chemistry: chemistryQuestions,
+    biology: biologyQuestions
 };
 
 // Wait for the DOM to finish loading before running the game

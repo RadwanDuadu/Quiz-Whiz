@@ -1,4 +1,4 @@
-export const geographyQuestions = [
+const geographyQuestions = [
   {
     question: "What is the capital of France?",
     options: ["Berlin", "Madrid", "Paris", "Rome"],
@@ -98,5 +98,108 @@ export const geographyQuestions = [
     question: "Which continent has the most countries?",
     options: ["Asia", "Europe", "Africa", "South America"],
     answer: "Africa"
+  }
+];
+
+const historyQuestions = [
+  {
+    question: "Who was the first President of the United States?",
+    options: ["Thomas Jefferson", "John Adams", "George Washington", "James Madison"],
+    answer: "George Washington"
+  },
+  {
+    question: "In which year did World War II end?",
+    options: ["1940", "1945", "1939", "1950"],
+    answer: "1945"
+  },
+  {
+    question: "Which ancient civilization built the pyramids?",
+    options: ["Romans", "Greeks", "Egyptians", "Babylonians"],
+    answer: "Egyptians"
+  },
+  {
+    question: "Who discovered America in 1492?",
+    options: ["Vasco da Gama", "Christopher Columbus", "Ferdinand Magellan", "Amerigo Vespucci"],
+    answer: "Christopher Columbus"
+  },
+  {
+    question: "Which empire was ruled by Julius Caesar?",
+    options: ["Byzantine Empire", "Ottoman Empire", "Roman Empire", "Persian Empire"],
+    answer: "Roman Empire"
+  },
+  {
+    question: "What wall divided East and West Berlin during the Cold War?",
+    options: ["Iron Wall", "Berlin Wall", "Great Wall", "Partition Wall"],
+    answer: "Berlin Wall"
+  },
+  {
+    question: "Who was the British Prime Minister during World War II?",
+    options: ["Winston Churchill", "Margaret Thatcher", "Neville Chamberlain", "Tony Blair"],
+    answer: "Winston Churchill"
+  },
+  {
+    question: "What was the name of the ship on which the Pilgrims traveled to America?",
+    options: ["Mayflower", "Santa Maria", "Endeavour", "Beagle"],
+    answer: "Mayflower"
+  },
+  {
+    question: "Which war was fought between the North and South regions in the United States?",
+    options: ["Revolutionary War", "Civil War", "World War I", "War of 1812"],
+    answer: "Civil War"
+  },
+  {
+    question: "Who was the first female Prime Minister of the United Kingdom?",
+    options: ["Theresa May", "Elizabeth II", "Margaret Thatcher", "Angela Merkel"],
+    answer: "Margaret Thatcher"
+  },
+  {
+    question: "What year did the Soviet Union collapse?",
+    options: ["1991", "1989", "1995", "1985"],
+    answer: "1991"
+  },
+  {
+    question: "Which famous battle took place in 1066?",
+    options: ["Battle of Hastings", "Battle of Waterloo", "Battle of Agincourt", "Battle of Trafalgar"],
+    answer: "Battle of Hastings"
+  },
+  {
+    question: "Who was known as the Maid of Orléans?",
+    options: ["Marie Antoinette", "Joan of Arc", "Catherine de' Medici", "Eleanor of Aquitaine"],
+    answer: "Joan of Arc"
+  },
+  {
+    question: "Which U.S. president abolished slavery?",
+    options: ["George Washington", "Andrew Jackson", "Abraham Lincoln", "Theodore Roosevelt"],
+    answer: "Abraham Lincoln"
+  },
+  {
+    question: "The Renaissance began in which country?",
+    options: ["France", "Italy", "Germany", "Spain"],
+    answer: "Italy"
+  },
+  {
+    question: "Who was the longest-reigning British monarch before Queen Elizabeth II?",
+    options: ["King George III", "Queen Victoria", "King Henry VIII", "Queen Mary"],
+    answer: "Queen Victoria"
+  },
+  {
+    question: "Which civilization invented the wheel?",
+    options: ["Egyptians", "Romans", "Sumerians", "Greeks"],
+    answer: "Sumerians"
+  },
+  {
+    question: "Which city was destroyed by a volcanic eruption in 79 AD?",
+    options: ["Athens", "Pompeii", "Rome", "Carthage"],
+    answer: "Pompeii"
+  },
+  {
+    question: "What was the name of the U.S. policy to prevent the spread of communism during the Cold War?",
+    options: ["Isolationism", "Containment", "Domino Theory", "Marshall Plan"],
+    answer: "Containment"
+  },
+  {
+    question: "Who was the leader of the Soviet Union during World War II?",
+    options: ["Nikita Khrushchev", "Vladimir Lenin", "Joseph Stalin", "Leon Trotsky"],
+    answer: "Joseph Stalin"
   }
 ];

@@ -1,7 +1,7 @@
 //import the questions from the questions.js file
-import {
-    geographyQuestions
-} from './questions.js';
+// import {
+//     geographyQuestions
+// } from './questions.js';
 
 // Declare the global variable at the top
 let questionSet = null;
@@ -12,8 +12,8 @@ let currentGameType = null;
 
 // Object containing available question arrays
 const questionSets = {
-    geography: geographyQuestions
-    //history: historyQuestions,
+    geography: geographyQuestions,
+    history: historyQuestions,
     // add more sets as needed
 };
 

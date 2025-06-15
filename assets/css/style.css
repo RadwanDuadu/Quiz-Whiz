@@ -1,4 +1,4 @@
-/* --------- Heading ------------- */
+/* Heading  */
 
 .heading {
   text-align: center;
@@ -10,7 +10,7 @@
   padding-right: 5px;
 }
 
-/* --------- Button Styles for subject selection --------- */
+/* Button Styles for subject selection */
 .topic-btn {
   border: 2px solid transparent;
   transition: border 0.2s ease, background-color 0.2s ease;
@@ -25,18 +25,25 @@
   height: 60px;
   object-fit: contain;
 }
-/* --------- Question Box Styles --------- */
+
+/* Question Box Styles  */
 .question-box {
   min-height: 100px;
   text-align: center;
 }
 
-/* --------- Answer Options Styles --------- */
+/* Answer Options Styles */
 .answer-option {
   text-align: left;
 }
 
-/* --------- Responsive Design For Larger Screens--------- */
+.answer-option.selected {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+/* Responsive Design For Larger Screens */
 @media (min-width: 992px) {
   .topic-icon {
     width: 80px;

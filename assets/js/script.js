@@ -42,12 +42,36 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // Make sure the modal is initialized properly before calling .show() or .hide():
+    const feedbackModalEl = document.getElementById('feedbackModal');
+    if (!bootstrap.Modal.getInstance(feedbackModalEl)) {
+        new bootstrap.Modal(feedbackModalEl);
+    }
+
     // add event listener for reset button
-    document.getElementById('play-again-btn').addEventListener('click', () => {
-        const modal = bootstrap.Modal.getInstance(document.getElementById('feedbackModal'));
-        modal.hide(); // Close modal
-        resetGame(); // Restart game
+    document.getElementById('play-again-btn').addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const modalElement = document.getElementById('feedbackModal');
+        const modalInstance = bootstrap.Modal.getInstance(modalElement);
+
+        if (modalInstance) {
+            modalInstance.hide();
+        }
+
+        // 💥 Force cleanup of modal artifacts
+        document.body.classList.remove('modal-open');
+        document.body.style.overflow = ''; // 🧹 In case Bootstrap locked scroll with inline styles
+
+        // Remove all modal backdrops
+        const backdrops = document.querySelectorAll('.modal-backdrop');
+        backdrops.forEach(backdrop => backdrop.remove());
+
+        console.log("Play again button clicked: " + currentGameType);
+        resetGame();
     });
+
+
 
     // Add event listeners to all buttons
     for (let button of buttons) {
@@ -66,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
 
     // Blur the currently focused element when the feedback modal is closed
     const feedbackModal = document.getElementById('feedbackModal');
@@ -89,10 +112,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Start the game with the default topic
-    // This will be the first topic button that is selected
-    currentGameType = "geography";
-    runGame("geography");
+    // 🛠️ Only auto-start the game if no topic was chosen
+    if (!currentGameType) {
+        const firstTopic = topicButtons[0].getAttribute('data-type');
+        currentGameType = firstTopic;
+        runGame(firstTopic);
+    }
 });
 
 /**
@@ -114,12 +139,11 @@ function runGame(gameType) {
     selectedQuestions = getRandomQuestionsWithShuffledOptions(questionSet, 10);
     currentQuestionIndex = 0;
 
-    // ✅ Only reset scores if it's a different topic
-    if (isNewGameType) {
-        document.getElementById("correct-answers").innerText = "0";
-        document.getElementById("incorrect-answers").innerText = "0";
-        document.getElementById("total-questions").innerText = "0";
-    }
+    // ✅ reset scores if it's a new game
+    document.getElementById("correct-answers").innerText = "0";
+    document.getElementById("incorrect-answers").innerText = "0";
+    document.getElementById("total-questions").innerText = "0";
+
 
     displayQuestion(selectedQuestions[0]);
 }
@@ -186,7 +210,19 @@ function checkAnswer() {
             });
             document.querySelector('[data-type="submit"]').disabled = false;
         } else {
-            showFeedbackModal("Quiz complete! Thank you for playing!", "primary", "Quiz Finished");
+            // Wait until the current feedback modal is hidden, then show the final message
+            const modalEl = document.getElementById('feedbackModal');
+            const bootstrapModal = bootstrap.Modal.getInstance(modalEl);
+            if (bootstrapModal) {
+                modalEl.addEventListener('hidden.bs.modal', function onHidden() {
+                    modalEl.removeEventListener('hidden.bs.modal', onHidden); // Cleanup
+                    showFeedbackModal("Quiz complete! Thank you for playing!", "primary", "Quiz Finished");
+                });
+                bootstrapModal.hide(); // Hide current feedback modal
+            } else {
+                // Fallback: if no modal was open for some reason
+                showFeedbackModal("Quiz complete! Thank you for playing!", "primary", "Quiz Finished");
+            }
         }
     }, 1000);
 
@@ -268,17 +304,9 @@ function resetGame() {
         return;
     }
 
-    // ✅ Reset score and question counters
-    document.getElementById("correct-answers").innerText = "0";
-    document.getElementById("incorrect-answers").innerText = "0";
-    document.getElementById("total-questions").innerText = "0";
+    runGame(currentGameType);
 
-    // ✅ Reset question list and index
-    currentQuestionIndex = 0;
-    selectedQuestions = getRandomQuestionsWithShuffledOptions(questionSets[currentGameType], 10);
-    displayQuestion(selectedQuestions[currentQuestionIndex]);
-
-    // ✅ Reset UI elements
+    // Reset UI elements
     const answerButtons = document.querySelectorAll('.answer-option');
     answerButtons.forEach(btn => {
         btn.classList.remove('selected');
@@ -287,5 +315,3 @@ function resetGame() {
 
     document.getElementById('submit-btn').disabled = true;
 }
-
-

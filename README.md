@@ -144,24 +144,16 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 ## Features
 
-⚠️ INSTRUCTIONS ⚠️
-
-In this section, you should go over the different parts of your project, and describe each feature. You should explain what value each of the features provides for the user, focusing on your target audience, what they want to achieve, and how your project can help them achieve these things.
-
-**IMPORTANT**: Remember to always include a screenshot of each individual feature!
-
-⚠️ --- END --- ⚠️
-
-### Existing Features
-
-| Feature       | Notes                                                                                                                                                                                                                                                        | Screenshot                                              |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
-| Operators     | The mathematical operators (`+`, `-`, `*`, `/`) are large and colorful to allow users to easily select their preferred method of testing their calculation skills. Each operator is color-coded, and has the text name as well for easy identification.      | ![screenshot](documentation/features/operators.png)     |
-| Equation      | This section visibly displays the current equation to be calculated, dynamically updated to use the specific operator that the user has selected above. The empty `<input>` field allows users to enter valid numerical values to test their math skills.    | ![screenshot](documentation/features/equation.png)      |
-| Submit Answer | This button allows user to submit their calculation to see if they've successfully answered the current equation. Users can also use the `[ENTER]` key on their keyboard to submit their answers, too.                                                       | ![screenshot](documentation/features/submit-answer.png) |
-| Scores        | This section tallies the total number of _correct_ and _incorrect_ answers that the user has calculated. Green to represent _correct_, and red to represent _incorrect_.                                                                                     | ![screenshot](documentation/features/scores.png)        |
-| Alerts        | Depending on whether or not the user gets the calculation correct or incorrect, alerts are used to provide simple feedback to the user. This showcases if they got it correct, or if they've gotten it incorrect, therefore also showing the correct answer. | ![screenshot](documentation/features/alerts.png)        |
-| 404           | The 404 error page will indicate when a user has somehow navigated to a page that doesn't exist. This replaces the default GitHub Pages 404 page, and ties-in with the look and feel of the _Love Maths_ site by using the standard navbar and footer.       | ![screenshot](documentation/features/404.png)           |
+| Feature          | Notes                                                                                                                                                                                                     | Screenshot                                                 |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| Topic Selection  | Users can select from multiple quiz topics including Geography, History, Physics, Chemistry, and Biology. Each topic button features an icon and label, with Geography pre-selected by default.           | ![screenshot](documentation/features/topic_selection.png)  |
+| Question Display | The current quiz question is shown in a central card layout. The text is clearly styled and updated dynamically based on the selected topic and game progression.                                         | ![screenshot](documentation/features/question.png) |
+| Answer Options   | Four answer choices are presented as large, clearly labeled buttons. When selected, the button is highlighted to indicate the current choice, and the Submit button is enabled.                           | ![screenshot](documentation/features/answer.png)   |
+| Submit Button    | A large, centrally aligned submit button becomes clickable only after the user selects an answer. It ensures intentional submissions and maintains accessibility by disabling keyboard-based submissions. | ![screenshot](documentation/features/submit.png)    |
+| Score Tracker    | Displays running totals of correct, incorrect, and total questions answered. The feedback is live and located directly below the quiz area to keep users informed of their performance in real-time.      | ![screenshot](documentation/features/score.png)    |
+| Feedback Modal   | After each question or at the end of the quiz, a modal provides custom feedback based on the user's performance, reinforcing learning and engagement.                                                     | ![screenshot](documentation/features/feedback.png)   |
+| Game Rules Modal | A modal accessible via the "Game Rules" button displays a comprehensive list of instructions. It helps users understand how the game works before starting or while playing.                              | ![screenshot](documentation/features/game_rules.png)      |
+| Reset Function   | The red "Reset Button" is always available, allowing users to restart the quiz at any point. This resets all scores and topic selections, offering a fresh start.                                         | ![screenshot](documentation/features/reset_button.png)     |
 
 ### Future Features
 

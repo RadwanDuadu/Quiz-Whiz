@@ -112,12 +112,6 @@ The typography design of Quiz-Whiz aims for simplicity and accessibility, relyin
 
 ## Wireframes
 
-⚠️ INSTRUCTIONS ⚠️
-
-If you've created wireframes or mock-ups, use this section to display screenshots of your wireframes. The example table below uses sample pages from the walkthrough project to give you some inspiration for your own project, so please adjust accordingly.
-
-⚠️ --- END --- ⚠️
-
 To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
 I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
@@ -128,23 +122,25 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 ## User Stories
 
-⚠️ INSTRUCTIONS ⚠️
+| Target    | Expectation                                                                                | Outcome                                                                |
+| --------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
+| As a user | I would like to start the quiz immediately with Geography questions by default             | so that I can begin playing without needing to make a selection first. |
+| As a user | I would like to choose a different subject before starting the quiz                        | so that I can focus on a topic of my interest or study.                |
+| As a user | I would like to view the game rules before starting                                        | so that I understand how the quiz works.                               |
+| As a user | I would like to receive immediate feedback on my answers                                   | so that I can learn from my mistakes and improve.                      |
+| As a user | I would like to continue to the next question without refreshing or reloading              | so that I can keep playing smoothly.                                   |
+| As a user | I would like to see how many questions I got correct or incorrect                          | so that I can track my performance throughout the game.                |
+| As a user | I would like to reset the quiz at any time using a visible button                          | so that I can restart if I want a fresh attempt.                       |
+| As a user | I would like only three main options after each question (continue, switch subject, reset) | so that the interface remains simple and not overwhelming.             |
+| As a user | I would like the app to disable the submit button until I select an answer                 | so that I don’t accidentally submit without making a choice.           |
+| As a user | I would like to see feedback and scores in a visually clear and engaging format            | so that I can stay motivated and enjoy the experience.                 |
+| As a user | I would like to be able to play the quiz without relying on the Enter key                  | so that the entire experience is mouse/touch-friendly and accessible.  |
+| As a user | I would like the interface to be responsive and work well across different screen sizes    | so that I can play the game on any device without issues.              |
+| As a Visitor | I want to be redirected to a custom 404 page when I enter a non-existent URL so that I receive a relevant and personal message instead of a default error page. | A custom 404.html page exists and provides a personal message with navigation options. |
+| As a Devloper | I want my HTML code to pass the W3C validation with no issues so that I ensure proper coding standards. | No validation errors in the Validator for HTML code.|
+| As a Devloper | I want my CSS code to pass the W3C validation with no issues so that I ensure proper coding standards. | No validation errors in the Validator for CSS code.|
+| As a Devloper | I want my JS code to pass the Jhint validation with no issues so that I ensure proper coding standards. | No validation errors in the Validator for JS code.|
 
-In this section, list all of your possible user stories for the project. Samples have been provided below using the example walkthrough project for your inspiration. Make sure to adjust to match your own project features!
-
-⚠️ --- END --- ⚠️
-
-| Target    | Expectation                                                                             | Outcome                                                                 |
-| --------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| As a user | I would like to input two numbers and select an operator (`+`, `-`, `*`, `/`)           | so that I can calculate a result.                                       |
-| As a user | I would like the application to show me an error message if I enter empty input (`NaN`) | so that I understand what went wrong.                                   |
-| As a user | I would like the calculation to happen instantly after I select an operator             | so that I get my result quickly without waiting.                        |
-| As a user | I would like the application to have clear and large buttons for each operator          | so that I can easily select the correct one on any device.              |
-| As a user | I would like the application to have high-contrast colors and accessible fonts          | so that I can easily read and interact with it.                         |
-| As a user | I would like clear labels and instructions                                              | so that I understand how to use the app without confusion.              |
-| As a user | I would like the app to show me the correct result if my equation was incorrect         | so that I understand how the answer was calculated.                     |
-| As a user | I would like to see how many equations I get correct or incorrect                       | so I can push myself to improve my math skills.                         |
-| As a user | I would like to see a 404 error page if I get lost                                      | so that it's obvious that I've stumbled upon a page that doesn't exist. |
 
 ## Features
 

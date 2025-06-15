@@ -22,26 +22,24 @@ source: [Quiz-Whiz amiresponsive](https://ui.dev/amiresponsive?url=https://radwa
 
 ### The 5 Planes of UX
 
-⚠️ NOTE: make sure to update the text below to match your own project! ⚠️
-
 #### 1. Strategy
 
 **Purpose**
-
-- Provide users with a simple and accessible way to perform basic mathematical operations.
-- Deliver instant feedback to improve usability and encourage learning.
-- Support accessibility and user-friendly interactions.
+- Provide users with an engaging and accessible platform to test and expand their knowledge in core subjects like Geography, History, Biology, Chemistry, and Physics.
+- Deliver instant, meaningful feedback via interactive visuals (e.g., modals and color cues) to enhance understanding and user experience.
+- Promote accessibility through responsive design, semantic HTML, and compliance with WCAG standards to ensure the quiz is usable by all audiences.
+- Support multiple game modes to accommodate different learning styles — from casual free-for-all trivia to focused subject-specific quizzes.
 
 **Primary User Needs**
-
-- Perform calculations quickly and accurately.
-- Understand errors and correct them easily.
-- Track performance to motivate self-improvement.
+- Challenge their knowledge across different academic domains in a fun, fast-paced quiz format.
+- Receive immediate, clear feedback on submitted answers to support learning and retention.
+- Navigate easily across subjects and game modes with intuitive UI controls and accessible layouts.
+- Stay motivated through dynamic question pools, responsive interactions, and visual encouragement (e.g., score tracking or feedback modals).
 
 **Business Goals**
-
-- Encourage users to engage with the app for educational and recreational purposes.
-- Showcase a well-designed, accessible tool that supports learning.
+- Foster continued user engagement through customizable quiz experiences suited to both casual users and academic learners.
+- Showcase a modern, responsive, and accessible web application that exemplifies front-end development best practices — ideal for inclusion in portfolios or as a demonstrable teaching resource.
+- Provide a scalable and maintainable project structure suitable for future expansion (e.g., leaderboard integration, user accounts, or timed challenges).
 
 #### 2. Scope
 
@@ -49,28 +47,34 @@ source: [Quiz-Whiz amiresponsive](https://ui.dev/amiresponsive?url=https://radwa
 
 **Content Requirements**
 
-- Clear labels and instructions for input and operator buttons.
-- Error messages for invalid inputs.
-- Instant calculation results.
-- Statistics display for tracking correct/incorrect equations.
+- Game controls and options must have clear labels and instructions for ease of use.
+- Modals should provide friendly and informative feedback for errors and answer results.
+- Answers should be validated instantly with immediate visual feedback.
+- User performance stats (correct/incorrect answers) should be visibly tracked during gameplay.
+- A custom error page must be available to handle invalid routes or broken links gracefully.
 
 #### 3. Structure
 
 **Information Architecture**
 
-- **Navigation Menu**:
-  - Simple navbar with accessible links.
+- **Game Rules**:
+  - Simple section highlighting all rules.
 - **Hierarchy**:
-  - Clear and prominent placement of the input fields and operator buttons.
-  - Visible results area and error messages.
+  - The Game Area is the main focus, prominently displaying the selected game mode and current subject.
+  - The Question Area is placed centrally, clearly showing the active question and multiple-choice options.
+  - The Control Panel (within the Game Area) allows users to select subjects, switch game modes, and start/reset quizzes.
+  - A Results & Feedback Section visibly displays the user's score, answer feedback, and overall progress.
+  - Any error messages (e.g., no answer selected) are shown via modals with consistent styling and clear context.
 
 **User Flow**
 
-1. User lands on the home page → reads brief instructions.
-2. Inputs two numbers → selects an operator.
-3. Sees instant results or an error message if input is invalid.
-4. Views correct/incorrect equation feedback.
-5. Starts fresh with the next calculation.
+1. User lands on the Home Page → has the option to click the Game Rules button to read instructions and understand how the game works.
+2. Without any interaction, the game automatically starts with Geography questions displayed in the Question Area.
+3. If the user prefers a different subject, they can select an alternative subject before answering the first question.
+4. User selects one of the four multiple-choice answers and clicks the Submit button (keyboard input is not supported).
+5. A Bootstrap modal appears to show whether the selected answer was correct or incorrect.
+6. User then chooses to either continue to the next question, select another subject, or reset the game entirely.
+7. The flow continues with repeated question-answer-feedback cycles based on the selected mode or subject.
 
 #### 4. Skeleton
 

@@ -276,7 +276,7 @@ function incrementQuestionNumber() {
 // Show a modal with feedback on the user's answer
 function showFeedbackModal(message, type = "primary", title) {
     const modalElement = new bootstrap.Modal(document.getElementById('feedbackModal'));
-    const modalTitle = document.getElementById('feedbackTitle');
+    const modalTitle = document.getElementById('feedbackModalLabel');
     const modalBody = document.getElementById('feedbackBody');
     const playAgainBtn = document.getElementById('play-again-btn');
     const okBtn = document.getElementById('ok-btn');

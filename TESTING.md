@@ -15,8 +15,8 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-|  | [404.html](https://github.com/RadwanDuadu/Quiz-Whiz/blob/main/404.html) | [HTML Validator](https://validator.w3.org/nu/?doc=https://radwanduadu.github.io/Quiz-Whiz/404.html) | ![screenshot](documentation/validation/html--404.png) | Notes (if applicable) |
-|  | [index.html](https://github.com/RadwanDuadu/Quiz-Whiz/blob/main/index.html) | [HTML Validator](https://validator.w3.org/nu/?doc=https://radwanduadu.github.io/Quiz-Whiz/index.html) | ![screenshot](documentation/validation/html--index.png) | Notes (if applicable) |
+|  | [404.html](https://github.com/RadwanDuadu/Quiz-Whiz/blob/main/404.html) | [HTML Validator](https://validator.w3.org/nu/?doc=https://radwanduadu.github.io/Quiz-Whiz/404.html) | ![screenshot](documentation/validation/html--404.png) | No errors detected |
+|  | [index.html](https://github.com/RadwanDuadu/Quiz-Whiz/blob/main/index.html) | [HTML Validator](https://validator.w3.org/nu/?doc=https://radwanduadu.github.io/Quiz-Whiz/index.html) | ![screenshot](documentation/validation/html--index.png) | No errors detected |
 
 
 ### CSS

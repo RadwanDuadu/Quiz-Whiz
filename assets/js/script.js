@@ -1,8 +1,3 @@
-//import the questions from the questions.js file
-// import {
-//     geographyQuestions
-// } from './questions.js';
-
 // Declare the global variable at the top
 let questionSet = null;
 let selectedQuestions = [];
@@ -46,8 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Make sure the modal is initialized properly before calling .show() or .hide():
     const feedbackModalEl = document.getElementById('feedbackModal');
-    if (!bootstrap.Modal.getInstance(feedbackModalEl)) {
-        new bootstrap.Modal(feedbackModalEl);
+    let modalInstance = bootstrap.Modal.getInstance(feedbackModalEl);
+    if (!modalInstance) {
+        modalInstance = new bootstrap.Modal(feedbackModalEl);
     }
 
     // add event listener for reset button
@@ -72,24 +68,25 @@ document.addEventListener("DOMContentLoaded", function () {
         resetGame();
     });
 
+    // Extracted handler function
+    function handleButtonClick(event) {
+        event.preventDefault(); // ✅ Prevent default form behavior
 
+        const type = event.currentTarget.getAttribute("data-type");
+        if (!type) return;
+
+        if (type === "submit") {
+            checkAnswer();
+        } else if (type === "reset") {
+            window.location.reload();
+        } else {
+            runGame(type);
+        }
+    }
 
     // Add event listeners to all buttons
     for (let button of buttons) {
-        button.addEventListener("click", function (event) {
-            event.preventDefault(); // ✅ Prevent default form behavior
-
-            const type = this.getAttribute("data-type");
-            if (!type) return;
-
-            if (type === "submit") {
-                checkAnswer();
-            } else if (type === "reset") {
-                window.location.reload();
-            } else {
-                runGame(type);
-            }
-        });
+        button.addEventListener("click", handleButtonClick);
     }
 
     // Blur the currently focused element when the feedback modal is closed
@@ -129,7 +126,7 @@ function runGame(gameType) {
     const isNewGameType = currentGameType !== gameType;
 
     if (!questionSets[gameType]) {
-        showFeedbackModal(`Unknown game type: ${gameType}`, "danger", "Game Type Error");
+        showFeedbackModal(`Unknown game type: ${gameType}`, "Game Type Error", "danger");
         throw new Error(`Unknown game type: "${gameType}". Available types are: ${Object.keys(questionSets).join(", ")}`);
     }
 
@@ -168,15 +165,14 @@ function getRandomQuestionsWithShuffledOptions(questions, count) {
 
 // Check the user's answer against the correct answer
 function checkAnswer() {
-
-    //increment number of questions
-    incrementQuestionNumber();
-
     const selected = document.querySelector('.answer-option.selected');
     if (!selected) {
-        showFeedbackModal("Please select an answer before submitting.", "warning", "No Answer Selected");
+        showFeedbackModal("Please select an answer before submitting.", "No Answer Selected", "warning");
         return;
     }
+
+    // ✅ Only increment if answer was selected
+    incrementQuestionNumber();
 
     const userAnswer = selected.textContent.replace(/^[A-D]\.\s*/, "").trim();
     const correctAnswer = selectedQuestions[currentQuestionIndex].answer;
@@ -212,16 +208,15 @@ function checkAnswer() {
             if (bootstrapModal) {
                 modalEl.addEventListener('hidden.bs.modal', function onHidden() {
                     modalEl.removeEventListener('hidden.bs.modal', onHidden); // Cleanup
-                    showFeedbackModal("Quiz complete! Thank you for playing!", "primary", "Quiz Finished");
+                    showFeedbackModal("Quiz complete! Thank you for playing!", "Quiz Finished", "primary");
                 });
                 bootstrapModal.hide(); // Hide current feedback modal
             } else {
                 // Fallback: if no modal was open for some reason
-                showFeedbackModal("Quiz complete! Thank you for playing!", "primary", "Quiz Finished");
+                showFeedbackModal("Quiz complete! Thank you for playing!", "Quiz Finished", "primary");
             }
         }
     }, 1000);
-
 }
 
 // Dsiaplay the question and options in the frontend UI
@@ -265,7 +260,7 @@ function incrementQuestionNumber() {
 }
 
 // Show a modal with feedback on the user's answer
-function showFeedbackModal(message, type = "primary", title) {
+function showFeedbackModal(message, title, type = "primary") {
     const modalElement = new bootstrap.Modal(document.getElementById('feedbackModal'));
     const modalTitle = document.getElementById('feedbackModalLabel');
     const modalBody = document.getElementById('feedbackBody');

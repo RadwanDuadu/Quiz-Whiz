@@ -120,25 +120,19 @@ Defensive programming was manually tested with the below user acceptance testing
 
 ## User Story Testing
 
-⚠️ INSTRUCTIONS ⚠️
-
-Testing User Stories is actually quite simple, once you've already got the stories defined on your README.
-
-Most of your project's **Features** should already align with the **User Stories**, so this should be as simple as creating a table with the User Story, matching with the re-used screenshot from the respective Feature.
-
-⚠️ --- END --- ⚠️
-
 | Target | Expectation | Outcome | Screenshot |
 | --- | --- | --- | --- |
-| As a user | I would like to input two numbers and select an operator (`+`, `-`, `*`, `/`) | so that I can calculate a result. | ![screenshot](documentation/features/feature01.png) |
-| As a user | I would like the application to show me an error message if I enter empty input (`NaN`) | so that I understand what went wrong. | ![screenshot](documentation/features/feature02.png) |
-| As a user | I would like the calculation to happen instantly after I select an operator | so that I get my result quickly without waiting. | ![screenshot](documentation/features/feature03.png) |
-| As a user | I would like the application to have clear and large buttons for each operator | so that I can easily select the correct one on any device. | ![screenshot](documentation/features/feature04.png) |
-| As a user | I would like the application to have high-contrast colors and accessible fonts | so that I can easily read and interact with it. | ![screenshot](documentation/features/feature05.png) |
-| As a user | I would like clear labels and instructions | so that I understand how to use the app without confusion. | ![screenshot](documentation/features/feature06.png) |
-| As a user | I would like the app to show me the correct result if my equation was incorrect | so that I understand how the answer was calculated. | ![screenshot](documentation/features/feature07.png) |
-| As a user | I would like to see how many equations I get correct or incorrect | so I can push myself to improve my math skills. | ![screenshot](documentation/features/feature08.png) |
-| As a user | I would like to see a 404 error page if I get lost | so that it's obvious that I've stumbled upon a page that doesn't exist. | ![screenshot](documentation/features/feature09.png) |
+| As a user | I would like to start the quiz immediately with Geography questions by default             | so that I can begin playing without needing to make a selection first. |![screenshot](documentation/features/question.png) |
+| As a user | I would like to choose a different subject before starting the quiz                        | so that I can focus on a topic of my interest or study.                |![screenshot](documentation/features/topic_selection.png) |
+| As a user | I would like to view the game rules before starting                                        | so that I understand how the quiz works.                               |![screenshot](documentation/features/game_rules.png) |
+| As a user | I would like to receive immediate feedback on my answers                                   | so that I can learn from my mistakes and improve.                      |![screenshot](documentation/features/feedback.png) |
+| As a user | I would like to continue to the next question without refreshing or reloading              | so that I can keep playing smoothly.                                   |![screenshot](documentation/features/continue.png)|
+| As a user | I would like to see how many questions I got correct or incorrect                          | so that I can track my performance throughout the game.                |![screenshot](documentation/features/score.png) |
+| As a user | I would like to reset the quiz at any time using a visible button                          | so that I can restart if I want a fresh attempt.                       | ![screenshot](documentation/features/reset_button.png) |
+| As a user | I would like the app to disable the submit button until I select an answer                 | so that I don’t accidentally submit without making a choice.           |![screenshot](documentation/features/submit-disable.png)|
+| As a user | I would like to see feedback and scores in a visually clear and engaging format            | so that I can stay motivated and enjoy the experience.                 |![screenshot](documentation/features/feedback.png)|
+| As a Visitor | I want to be redirected to a custom 404 page when I enter a non-existent URL so that I receive a relevant and personal message instead of a default error page. | A custom 404.html page exists and provides a personal message with navigation options. |![screenshot](documentation/browsers/chrome-404.png) |
+
 
 ## Bugs
 

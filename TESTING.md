@@ -67,56 +67,20 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 
 ## Defensive Programming
 
-⚠️ INSTRUCTIONS ⚠️
-
-Defensive programming (defensive design) is extremely important! When building projects that accept user inputs or forms, you should always test the level of security for each form field. Examples of this could include (but not limited to):
-
-All Projects:
-
-- Users cannot submit an empty form (add the `required` attribute)
-- Users must enter valid field types (ensure the correct input `type=""` is used)
-- Users cannot brute-force a URL to navigate to a restricted pages
-
-Python Projects:
-
-- Users cannot perform CRUD functionality if not authenticated (if login functionality exists)
-- User-A should not be able to manipulate data belonging to User-B, or vice versa
-- Non-Authenticated users should not be able to access pages that require authentication
-- Standard users should not be able to access pages intended for superusers/admins
-
-You'll want to test all functionality on your application, whether it's a standard form, or CRUD functionality, for data manipulation on a database. Try to access various pages on your site as different user types (User-A, User-B, guest user, admin, superuser). You should include any manual tests performed, and the expected results/outcome.
-
-Testing should be replicable (can someone else replicate the same outcome?). Ideally, tests cases should focus on each individual section of every page on the website. Each test case should be specific, objective, and step-wise replicable.
-
-Instead of adding a general overview saying that everything works fine, consider documenting tests on each element of the page (eg. button clicks, input box validation, navigation links, etc.) by testing them in their "happy flow", their "bad/exception flow", mentioning the expected and observed results, and drawing a parallel between them where applicable.
-
-Consider using the following format for manual test cases:
-
-- Expected Outcome / Test Performed / Result Received / Fixes Implemented
-
-- **Expected**: "Feature is expected to do X when the user does Y."
-- **Testing**: "Tested the feature by doing Y."
-- (either) **Result**: "The feature behaved as expected, and it did Y."
-- (or) **Result**: "The feature did not respond to A, B, or C."
-- **Fix**: "I did Z to the code because something was missing."
-
-Use the table below as a basic start, and expand on it using the logic above.
-
-⚠️ --- END --- ⚠️
-
 Defensive programming was manually tested with the below user acceptance testing:
 
-| Page/Feature | Expectation | Test | Result | Screenshot |
-| --- | --- | --- | --- | --- |
-| Calculator UI | Feature is expected to allow the user to input two numbers and select an operator (`+`, `-`, `*`, `/`). | Entered two numbers and selected each operator to perform calculations. | Calculations for all operators worked as expected. | ![screenshot](documentation/defensive/input-output.png) |
-| | Feature is expected to show an error message if inputs are empty (`NaN`). | Tried submitting calculations with empty input fields. | Error message displayed as expected. | ![screenshot](documentation/defensive/empty-inputs.png) |
-| | Feature is expected to display buttons that are clear, large, and easy to select on all devices. | Verified button sizes and usability across multiple devices (mobile, tablet, desktop). | Buttons were accessible and easy to use on all tested devices. | ![screenshot](documentation/defensive/responsive.png) |
-| | Feature is expected to use high-contrast colors and accessible fonts. | Checked contrast ratios using accessibility tools (e.g., Lighthouse, Wave). | Colors and fonts met accessibility standards. | ![screenshot](documentation/defensive/accessibility.png) |
-| | Feature is expected to have clear labels and instructions for user guidance. | Reviewed labels and instructions for clarity and ease of use. | Labels and instructions were clear and intuitive. | ![screenshot](documentation/defensive/labels-instructions.png) |
-| Instant Calculation | Feature is expected to calculate and display results instantly after selecting an operator. | Selected operators after entering two numbers. | Results were displayed instantly. | ![screenshot](documentation/defensive/calc-speed.png) |
-| Error Handling | Feature is expected to display correct results even if an equation was input incorrectly. | Entered various incorrect equations and verified the results. | Correct results were displayed for all tested cases. | ![screenshot](documentation/defensive/error-handling.png) |
-| Score Tracker | Feature is expected to track the number of correct and incorrect equations. | Performed multiple calculations (correct and incorrect) and checked the score tracker. | Score tracker updated correctly for all tested scenarios. | ![screenshot](documentation/defensive/score-tracker.png) |
-| 404 Error Page | Feature is expected to display a 404 error page for non-existent pages. | Navigated to an invalid URL (e.g., `/test`) to test error handling. | A custom 404 error page was displayed as expected. | ![screenshot](documentation/defensive/404.png) |
+| Page/Feature        | Expectation                                                             | Test                                                                      | Result                                                               | Screenshot                                                    |
+| ------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------- |
+| **Quiz UI**         | Feature should allow the user to select a topic and answer questions.   | Clicked a topic button, answered all questions using available options.   | Quiz ran through 10 questions with answer tracking working.          | ![screenshot](documentation/defensive/continue.png)          |
+|                     | Should disable submit button until an answer is selected.               | Tried clicking submit before selecting any answer.                        | Submit button remained disabled until an answer was chosen, or a feedback modal letting user know they must choose an answer appears.          | ![screenshot](documentation/defensive/submit-disable.png)    |
+|                     | Should prevent question counter from incrementing without an answer.    | Clicked submit without selecting an option.                               | Error modal appeared and question counter did not increment.         | ![screenshot](documentation/defensive/score.png)  |
+|                     | Buttons should be responsive and visually accessible.                   | Tested UI on mobile and desktop; used contrast checker.                   | Buttons resized correctly; contrast passed accessibility tests.      | ![screenshot](documentation/defensive/reset_button.png) |
+| **Topic Selection** | Only one topic button should be active at a time.                       | Clicked different topic buttons sequentially.                             | Only one button stayed highlighted; others were deselected.          | ![screenshot](documentation/defensive/topic-highlight.png)    |
+| **Modal Feedback**  | Should show correct or incorrect feedback immediately after submission. | Submitted correct and incorrect answers.                                  | Modals showed corresponding feedback and continued to next question. | ![screenshot](documentation/defensive/feedback.png)     |
+| **Score Tracker**   | Should accurately track correct, incorrect, and total answers.          | Answered questions intentionally right/wrong.                             | Score updated in real-time with no discrepancies.                    | ![screenshot](documentation/defensive/score.png)      |
+| **Reset Button**    | Should reset the game state and UI elements.                            | Clicked "Play Again" and "Reset" buttons.                                 | Game restarted with scores and UI cleared.                           | ![screenshot](documentation/defensive/reset_button.png)         |
+| **404 Page**        | Should display an error page for broken/invalid links.                  | Manually entered a non-existent route in the browser (e.g., `/quiz/xyz`). | Custom 404 page rendered correctly.                                  | ![screenshot](documentation/defensive/chrome-404.png)           |
+
 
 ## User Story Testing
 
@@ -157,5 +121,5 @@ Any remaining open issues can be tracked [here](https://www.github.com/RadwanDua
 ### Known Issues
 
 > [!IMPORTANT]
-> There are no remaining bugs that I am aware of, though, even after thorough testing, I cannot rule out the possibility.
+> There are no bugs that I am aware of, though, even after thorough testing, I cannot rule out the possibility.
 

@@ -25,37 +25,17 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-| assets | [style.css](https://github.com/RadwanDuadu/Quiz-Whiz/blob/main/assets/css/style.css) | [CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https://radwanduadu.github.io/Quiz-Whiz) | ![screenshot](documentation/validation/css-assets-style.png) | Notes (if applicable) |
+| assets | [style.css](https://github.com/RadwanDuadu/Quiz-Whiz/blob/main/assets/css/style.css) | [CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https://radwanduadu.github.io/Quiz-Whiz) | ![screenshot](documentation/validation/css-assets-style.png) | No errors detected |
 
 
 ### JavaScript
-
-⚠️ INSTRUCTIONS ⚠️
-
-If using modern JavaScript (ES6) methods, then make sure to include the following line at the very top of every single JavaScript file in your project (this should remain in your files for submission as well):
-
-`/* jshint esversion: 11 */`
-
-If you are also including jQuery (`$`), then the updated format will be:
-
-`/* jshint esversion: 11, jquery: true */`
-
-This allows the JShint validator to recognize modern ES6 methods, such as: `let`, `const`, `template literals`, `arrow functions (=>)`, etc.
-
-**IMPORTANT**: External resources
-
-Sometimes we'll write JavaScript that imports variables from other files, such as "an array of questions" from `questions.js`, which are used within the main `script.js` file elsewhere. If that's the case, the JShint validation tool doesn't know how to recognize "unused variables" that would normally be imported locally when running your own project. These warnings are acceptable, so showcase on your screenshot(s).
-
-The same thing applies when using external libraries such as Stripe, Leaflet, Bootstrap, Materialize, etc. To instantiate these components, we need to use their respective declarator. Again, the JShint validation tool would flag these as "undefined/unused variables". These warnings are acceptable, so showcase on your screenshot(s).
-
-⚠️ --- END --- ⚠️
 
 I have used the recommended [JShint Validator](https://jshint.com) to validate all of my JS files.
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-| assets | [questions.js](https://github.com/RadwanDuadu/Quiz-Whiz/blob/main/assets/js/questions.js) | N/A | ![screenshot](documentation/validation/js-assets-questions.png) | Notes (if applicable) |
-| assets | [script.js](https://github.com/RadwanDuadu/Quiz-Whiz/blob/main/assets/js/script.js) | N/A | ![screenshot](documentation/validation/js-assets-script.png) | Notes (if applicable) |
+| assets | [questions.js](https://github.com/RadwanDuadu/Quiz-Whiz/blob/main/assets/js/questions.js) | N/A | ![screenshot](documentation/validation/js-assets-questions.png) | No errors detected |
+| assets | [script.js](https://github.com/RadwanDuadu/Quiz-Whiz/blob/main/assets/js/script.js) | N/A | ![screenshot](documentation/validation/js-assets-script.png) | No errors detected |
 
 
 ## Responsiveness

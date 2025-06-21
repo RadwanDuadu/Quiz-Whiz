@@ -69,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const backdrops = document.querySelectorAll('.modal-backdrop');
         backdrops.forEach(backdrop => backdrop.remove());
 
-        console.log("Play again button clicked: " + currentGameType);
         resetGame();
     });
 
@@ -169,9 +168,6 @@ function getRandomQuestionsWithShuffledOptions(questions, count) {
 
 // Check the user's answer against the correct answer
 function checkAnswer() {
-    console.log("checkAnswer() called");
-    console.log("Current index:", currentQuestionIndex);
-    console.log("Selected questions:", selectedQuestions);
 
     //increment number of questions
     incrementQuestionNumber();
@@ -186,8 +182,6 @@ function checkAnswer() {
     const correctAnswer = selectedQuestions[currentQuestionIndex].answer;
 
     if (userAnswer === correctAnswer) {
-        console.log("User's answer:", userAnswer);
-        console.log("Correct answer:", correctAnswer);
         showFeedbackModal("✅ Correct!", "success");
         incrementScore();
     } else {
@@ -252,7 +246,6 @@ function displayQuestion(question) {
 function incrementScore() {
     let oldScore = parseInt(document.getElementById("correct-answers").innerText);
     document.getElementById("correct-answers").innerText = ++oldScore;
-    console.log(oldScore);
 }
 
 /**
@@ -261,7 +254,6 @@ function incrementScore() {
 function incrementWrongAnswer() {
     let oldScore = parseInt(document.getElementById("incorrect-answers").innerText);
     document.getElementById("incorrect-answers").innerText = ++oldScore;
-    console.log(oldScore);
 }
 
 /**
@@ -270,7 +262,6 @@ function incrementWrongAnswer() {
 function incrementQuestionNumber() {
     let questionNum = parseInt(document.getElementById("total-questions").innerText);
     document.getElementById("total-questions").innerText = ++questionNum;
-    console.log(questionNum);
 }
 
 // Show a modal with feedback on the user's answer
@@ -302,7 +293,6 @@ function showFeedbackModal(message, type = "primary", title) {
 // It clears the current question index, re-selects questions, and updates the UI
 function resetGame() {
     if (!currentGameType || !questionSets[currentGameType]) {
-        console.error("No valid current game type.");
         return;
     }
 

@@ -112,11 +112,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 🛠️ Only auto-start the game if no topic was chosen
+    // Only auto-start the game if no topic was chosen
     if (!currentGameType) {
         const firstTopic = topicButtons[0].getAttribute('data-type');
         currentGameType = firstTopic;
         runGame(firstTopic);
+
+        // ✅ Mark the first topic button (e.g., Geography) as selected in the UI
+        topicButtons[0].classList.add('selected');
     }
 });
 
@@ -167,6 +170,11 @@ function getRandomQuestionsWithShuffledOptions(questions, count) {
 
 // Check the user's answer against the correct answer
 function checkAnswer() {
+    // Lock current answer (disable buttons)
+    document.querySelectorAll('.answer-option').forEach(btn => btn.disabled = true);
+    document.querySelector('[data-type="submit"]').disabled = true;
+    const submitButton = document.getElementById('submit-btn');
+
     const selected = document.querySelector('.answer-option.selected');
     if (!selected) {
         showFeedbackModal("Please select an answer before submitting.", "No Answer Selected", "warning");
@@ -179,23 +187,24 @@ function checkAnswer() {
     const userAnswer = selected.textContent.replace(/^[A-D]\.\s*/, "").trim();
     const correctAnswer = selectedQuestions[currentQuestionIndex].answer;
 
-    if (userAnswer === correctAnswer) {
-        showFeedbackModal("✅ Correct!", "success");
+    const isCorrect = userAnswer === correctAnswer;
+
+    if (isCorrect) {
         incrementScore();
+        showFeedbackModal("✅ Correct!", "Correct", "success");
     } else {
-        showFeedbackModal(`❌ Incorrect! Correct answer: ${correctAnswer}`, "danger");
         incrementWrongAnswer();
+        showFeedbackModal(`❌ Incorrect! Correct answer: ${correctAnswer}`, "Incorrect", "danger");
     }
 
-    // Lock current answer (disable buttons)
-    document.querySelectorAll('.answer-option').forEach(btn => btn.disabled = true);
-    document.querySelector('[data-type="submit"]').disabled = true;
-    const submitButton = document.getElementById('submit-btn');
+    const modalEl = document.getElementById('feedbackModal');
 
-    // Move to next question after a short delay
-    setTimeout(() => {
+    // Wait until modal is dismissed before proceeding
+    function onModalHidden() {
+        modalEl.removeEventListener('hidden.bs.modal', onModalHidden);
         currentQuestionIndex++;
         submitButton.disabled = true;
+
         if (currentQuestionIndex < selectedQuestions.length) {
             displayQuestion(selectedQuestions[currentQuestionIndex]);
             document.querySelectorAll('.answer-option').forEach(btn => {
@@ -204,22 +213,14 @@ function checkAnswer() {
             });
             document.querySelector('[data-type="submit"]').disabled = false;
         } else {
-            // Wait until the current feedback modal is hidden, then show the final message
-            const modalEl = document.getElementById('feedbackModal');
-            const bootstrapModal = bootstrap.Modal.getInstance(modalEl);
-            if (bootstrapModal) {
-                modalEl.addEventListener('hidden.bs.modal', function onHidden() {
-                    modalEl.removeEventListener('hidden.bs.modal', onHidden); // Cleanup
-                    showFeedbackModal("Quiz complete! Thank you for playing!", "Quiz Finished", "primary");
-                });
-                bootstrapModal.hide(); // Hide current feedback modal
-            } else {
-                // Fallback: if no modal was open for some reason
-                showFeedbackModal("Quiz complete! Thank you for playing!", "Quiz Finished", "primary");
-            }
+            // ✅ Show final modal only after last answer modal is dismissed
+            showFeedbackModal("🎉 Quiz complete! Thank you for playing!", "Quiz Finished", "primary");
         }
-    }, 1000);
+    }
+
+    modalEl.addEventListener('hidden.bs.modal', onModalHidden);
 }
+
 
 // Dsiaplay the question and options in the frontend UI
 function displayQuestion(question) {

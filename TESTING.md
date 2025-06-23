@@ -118,8 +118,4 @@ Any remaining open issues can be tracked [here](https://www.github.com/RadwanDua
 
 ![screenshot](documentation/bugs/gh-issues-open.png)
 
-### Known Issues
-
-> [!IMPORTANT]
-> There are no bugs that I am aware of, though, even after thorough testing, I cannot rule out the possibility.
 

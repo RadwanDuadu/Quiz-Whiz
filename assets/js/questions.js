@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 const geographyQuestions = [
   {
     question: "What is the capital of France?",

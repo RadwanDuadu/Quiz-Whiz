@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 // Declare the global variable at the top
 let questionSet = null;
 let selectedQuestions = [];

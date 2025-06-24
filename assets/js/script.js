@@ -170,26 +170,30 @@ function getRandomQuestionsWithShuffledOptions(questions, count) {
 
 // Check the user's answer against the correct answer
 function checkAnswer() {
-    // Lock current answer (disable buttons)
-    document.querySelectorAll('.answer-option').forEach(btn => btn.disabled = true);
-    document.querySelector('[data-type="submit"]').disabled = true;
-    const submitButton = document.getElementById('submit-btn');
+    const answerBtns = document.querySelectorAll('.answer-option');
+    const submitBtn  = document.getElementById('submit-btn');
+    const selected   = document.querySelector('.answer-option.selected');
 
-    const selected = document.querySelector('.answer-option.selected');
+    /* ─── If nothing is selected, show warning and keep buttons active ─── */
     if (!selected) {
-        showFeedbackModal("Please select an answer before submitting.", "No Answer Selected", "warning");
-        return;
+        showFeedbackModal(
+            "Please select an answer before submitting.",
+            "No Answer Selected",
+            "warning"
+        );
+        return;                 // buttons stay enabled → user can pick again
     }
 
-    // ✅ Only increment if answer was selected
-    incrementQuestionNumber();
+    /* ─── Lock current answer (only after we know one is selected) ─── */
+    answerBtns.forEach(btn => btn.disabled = true);
+    submitBtn.disabled = true;
 
-    const userAnswer = selected.textContent.replace(/^[A-D]\.\s*/, "").trim();
+    /*  Increment counters, check correctness, show feedback … */
+    incrementQuestionNumber();
+    const userAnswer    = selected.textContent.replace(/^[A-D]\.\s*/, "").trim();
     const correctAnswer = selectedQuestions[currentQuestionIndex].answer;
 
-    const isCorrect = userAnswer === correctAnswer;
-
-    if (isCorrect) {
+    if (userAnswer === correctAnswer) {
         incrementScore();
         showFeedbackModal("✅ Correct!", "Correct", "success");
     } else {
@@ -197,27 +201,20 @@ function checkAnswer() {
         showFeedbackModal(`❌ Incorrect! Correct answer: ${correctAnswer}`, "Incorrect", "danger");
     }
 
+    /*  When modal is closed, load next question or final message  */
     const modalEl = document.getElementById('feedbackModal');
-
-    // Wait until modal is dismissed before proceeding
     function onModalHidden() {
         modalEl.removeEventListener('hidden.bs.modal', onModalHidden);
         currentQuestionIndex++;
-        submitButton.disabled = true;
 
         if (currentQuestionIndex < selectedQuestions.length) {
             displayQuestion(selectedQuestions[currentQuestionIndex]);
-            document.querySelectorAll('.answer-option').forEach(btn => {
-                btn.classList.remove('selected');
-                btn.disabled = false;
-            });
-            document.querySelector('[data-type="submit"]').disabled = false;
+            answerBtns.forEach(btn => { btn.classList.remove('selected'); btn.disabled = false; });
+            submitBtn.disabled = false;
         } else {
-            // ✅ Show final modal only after last answer modal is dismissed
             showFeedbackModal("🎉 Quiz complete! Thank you for playing!", "Quiz Finished", "primary");
         }
     }
-
     modalEl.addEventListener('hidden.bs.modal', onModalHidden);
 }
 
